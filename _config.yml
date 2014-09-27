@@ -1,0 +1,6 @@
+name: ZephireNZ's Blog
+url: http://zephire.nz
+
+encoding: utf-8
+exclude: [".gitignore", ".git"]
+highlighter: pygments

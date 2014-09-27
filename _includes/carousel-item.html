@@ -1,0 +1,19 @@
+<div class="item{% if include.active %} active{% endif %}">
+    {% if include.post.img-big %}
+    <img src="{{ include.post.img-big}}"/>
+    {% endif %}
+    <div class="container">
+        <div class="carousel-caption">
+            <div id="item-title" class="item-bg">
+                <h2>{{ include.post.title }}</h2>
+            </div>
+
+            <div id="item-blurb" class="item-bg">
+                <p>
+                    {{ include.post.excerpt }}
+                </p>
+                <span id="continue"><a href="{{ include.post.url }}">&gt;&gt; Continue</a></span>
+            </div>
+        </div>
+    </div>
+</div>
