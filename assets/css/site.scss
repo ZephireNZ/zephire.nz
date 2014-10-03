@@ -10,14 +10,10 @@ body {
 }
 
 .frontpage-item {
-  -webkit-box-shadow: 0px 0px 20px 5px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow:    0px 0px 20px 5px rgba(50, 50, 50, 0.75);
-  box-shadow:         0px 0px 20px 5px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 20px 5px rgba(50, 50, 50, 0.75);
   position: relative;
-  height: 600px;
+  height: 70vmin;
   background-color: #a94442;
-  //TODO: Border
-//  border-bottom: 1px black solid;
 }
 
 .frontpage-divider {
@@ -26,12 +22,13 @@ body {
 
 .item-bg {
   background-color: rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 }
 
 .frontpage-caption {
   position: absolute;
   left: 5%;
-  right: 15%;
+  right: 5%;
   text-align: left;
   z-index: 10;
   padding-bottom: 30px;
@@ -59,8 +56,14 @@ body {
   padding: 10px;
 }
 
+#post {
+  box-shadow: 0px 0px 20px 5px rgba(50, 50, 50, 0.75);
+  margin-bottom: 50px;
+  background-color: #fff;
+}
+
 #post-header {
-  height: 400px;
+  height: 70vmin;
   position: relative;
 
   background-color: #a94442;
@@ -83,4 +86,8 @@ body {
     display: inline-block;
     float: right;
   }
+}
+
+#post-content {
+  padding: 20px;
 }
