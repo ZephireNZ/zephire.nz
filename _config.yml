@@ -1,8 +1,9 @@
-name: ZephireNZ's Blog
+name: Zeph's Blog
+author: Brynley McDonald
 url: http://zephire.nz
 
 encoding: utf-8
 exclude: [".gitignore", ".git"]
 highlighter: pygments
 paginate: 5
-paginate: "/page:num"
+paginate_path: "/page/:num"
