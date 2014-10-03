@@ -2,24 +2,8 @@
 layout: default
 nav-active: blog
 ---
-<div id="carousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
+<div class="container" id="frontpage">
         {% for post in site.posts limit:5 %}
-        <li data-target="#carousel" data-slide-to="{{ forloop.index0 }}" {% if forloop.index == 1%}class="active"{% endif %}></li>
+            {% include frontpage-item.html post=post %}
         {% endfor %}
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-        {% for post in site.posts limit:5 %}
-            {% if forloop.index == 1 %}
-                {% assign active-item=true %}
-            {% else %}
-                {% assign active-item=false %}
-            {% endif %}
-            {% include carousel-item.html active=active-item post=post %}
-        {% endfor %}
-    </div>
-
 </div>
