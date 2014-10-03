@@ -3,7 +3,8 @@ layout: default
 nav-active: blog
 ---
 <div class="container" id="frontpage">
-        {% for post in site.posts limit:5 %}
-            {% include frontpage-item.html post=post %}
-        {% endfor %}
+    {% for post in site.posts limit:5 %}
+        {% include frontpage-item.html post=post %}
+    {% endfor %}
+    <!-- TODO: Pagination -->
 </div>

@@ -4,3 +4,5 @@ url: http://zephire.nz
 encoding: utf-8
 exclude: [".gitignore", ".git"]
 highlighter: pygments
+paginate: 5
+paginate: "/page:num"
