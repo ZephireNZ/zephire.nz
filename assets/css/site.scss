@@ -76,7 +76,6 @@ body {
   position: relative;
 
   background-color: #a94442;
-  background-size: cover;
   color: #fff;
   text-shadow: 0 1px 2px rgba(0,0,0,0.6);
 
@@ -94,4 +93,89 @@ body {
 
 #post-content {
   padding: 20px;
+}
+
+// Nav Theme
+
+$bgDefault      : #a94442;
+$bgHighlight    : #722e2d;
+$colDefault     : #d5d5d5;
+$colHighlight   : #ffffff;
+
+.navbar-default {
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+
+  .navbar-brand {
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHighlight;
+    }
+  }
+
+  .navbar-text {
+    color: $colDefault;
+  }
+
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        &:hover,  &:focus {
+          color: $colHighlight;
+        }
+      }
+    }
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight;
+      }
+    }
+
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight;
+      }
+    }
+  }
+
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover, &:focus {
+      background-color: $bgHighlight;
+    }
+    .icon-bar {
+      background-color: $colDefault;
+    }
+  }
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault;
+  }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $colDefault;
+
+      &:hover, &:focus {
+        color: $colHighlight;
+      }
+    }
+    > .active {
+      > a, > a:hover, > a:focus, {
+        color: $colHighlight;
+        background-color: $bgHighlight;
+      }
+    }
+  }
 }
