@@ -9,7 +9,7 @@ html, body {
   height:100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 544px) {
   .frontpage-item {
     min-height: 70vh;
   }
@@ -19,6 +19,10 @@ html, body {
     left: 0px;
     right: 0px;
     bottom: 0px;
+  }
+
+  #about-sidebar {
+    border-right: thin dotted $bgHighlight;
   }
 }
 
@@ -134,4 +138,9 @@ body {
         color: $colHighlight;
       }
     }
+}
+
+// About page
+img#about-portrait {
+  padding: 10%;
 }
