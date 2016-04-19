@@ -1,5 +1,10 @@
 ---
 ---
+$bgDefault      : #a94442;
+$bgHighlight    : #722e2d;
+$colDefault     : #e3e3e3;
+$colHighlight   : #ffffff;
+
 html, body {
   height:100%;
 }
@@ -96,86 +101,37 @@ body {
 }
 
 // Nav Theme
-
-$bgDefault      : #a94442;
-$bgHighlight    : #722e2d;
-$colDefault     : #e3e3e3;
-$colHighlight   : #ffffff;
-
-.navbar-default {
+.navbar-custom {
   background-color: $bgDefault;
   border-color: $bgHighlight;
 
   .navbar-brand {
-    color: $colDefault;
-    &:hover, &:focus {
-      color: $colHighlight;
-    }
+    color: $colHighlight;
   }
 
-  .navbar-text {
-    color: $colDefault;
-  }
-
-  .navbar-nav {
-    > li {
-      > a {
-        color: $colDefault;
-        &:hover,  &:focus {
-          color: $colHighlight;
-        }
-      }
-    }
-    > .active {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight;
-      }
-    }
-
-    > .open {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight;
-      }
-    }
-  }
-
-  .navbar-toggle {
+  .navbar-toggler {
     border-color: $bgHighlight;
     &:hover, &:focus {
       background-color: $bgHighlight;
     }
-    .icon-bar {
-      background-color: $colDefault;
-    }
   }
-  .navbar-collapse,
-  .navbar-form {
-    border-color: $colDefault;
-  }
-  .navbar-link {
-    color: $colDefault;
-    &:hover {
+
+  .dropdown.active {
+    > a, > a:hover, > a:focus {
       color: $colHighlight;
     }
   }
-}
 
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu {
-    > li > a {
-      color: $colDefault;
-
-      &:hover, &:focus {
-        color: $colHighlight;
-      }
-    }
-    > .active {
-      > a, > a:hover, > a:focus, {
-        color: $colHighlight;
-        background-color: $bgHighlight;
-      }
+  .nav-link {
+    color: $colDefault;
+    &.active, &:hover,  &:focus {
+      color: $colHighlight;
     }
   }
+
+  .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+      }
+    }
 }
