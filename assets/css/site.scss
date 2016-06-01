@@ -1,10 +1,15 @@
 ---
 ---
+$bgDefault      : #a94442;
+$bgHighlight    : #722e2d;
+$colDefault     : #e3e3e3;
+$colHighlight   : #ffffff;
+
 html, body {
   height:100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 544px) {
   .frontpage-item {
     min-height: 70vh;
   }
@@ -14,6 +19,18 @@ html, body {
     left: 0px;
     right: 0px;
     bottom: 0px;
+  }
+
+  #about-blurb {
+    border-left: thin dotted $bgHighlight;
+  }
+}
+
+@media (max-width: 543px) {
+  #about-blurb {
+    border-top: thin dotted $bgHighlight;
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
   }
 }
 
@@ -96,86 +113,65 @@ body {
 }
 
 // Nav Theme
-
-$bgDefault      : #a94442;
-$bgHighlight    : #722e2d;
-$colDefault     : #e3e3e3;
-$colHighlight   : #ffffff;
-
-.navbar-default {
+.navbar-custom {
   background-color: $bgDefault;
   border-color: $bgHighlight;
 
   .navbar-brand {
-    color: $colDefault;
-    &:hover, &:focus {
-      color: $colHighlight;
-    }
+    color: $colHighlight;
   }
 
-  .navbar-text {
-    color: $colDefault;
-  }
-
-  .navbar-nav {
-    > li {
-      > a {
-        color: $colDefault;
-        &:hover,  &:focus {
-          color: $colHighlight;
-        }
-      }
-    }
-    > .active {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight;
-      }
-    }
-
-    > .open {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight;
-      }
-    }
-  }
-
-  .navbar-toggle {
+  .navbar-toggler {
     border-color: $bgHighlight;
     &:hover, &:focus {
       background-color: $bgHighlight;
     }
-    .icon-bar {
-      background-color: $colDefault;
-    }
   }
-  .navbar-collapse,
-  .navbar-form {
-    border-color: $colDefault;
-  }
-  .navbar-link {
-    color: $colDefault;
-    &:hover {
+
+  .dropdown.active {
+    > a, > a:hover, > a:focus {
       color: $colHighlight;
     }
   }
+
+  .nav-link {
+    color: $colDefault;
+    &.active, &:hover,  &:focus {
+      color: $colHighlight;
+    }
+  }
+
+  .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+      }
+    }
 }
 
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu {
-    > li > a {
-      color: $colDefault;
+// About page
+img#about-portrait {
+  padding: 10%;
+}
 
-      &:hover, &:focus {
-        color: $colHighlight;
-      }
-    }
-    > .active {
-      > a, > a:hover, > a:focus, {
-        color: $colHighlight;
-        background-color: $bgHighlight;
-      }
-    }
+a#about-cv {
+  color: #fff;
+  background-color: $bgDefault;
+  border-color: $bgDefault;
+  &:hover, &:focus {
+    background-color: $bgHighlight;
+    border-color: $bgHighlight;
+  }
+}
+
+// Pager
+.page-link {
+  color: $bgDefault;
+}
+
+.page-item.active .page-link {
+  &, &:hover, &:focus {
+    color: $colDefault;
+    background-color: $bgDefault;
+    border-color: $bgDefault;
   }
 }
