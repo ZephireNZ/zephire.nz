@@ -3,7 +3,9 @@ author: Brynley McDonald
 url: http://zephire.nz
 
 encoding: utf-8
-exclude: [".gitignore", ".git"]
+exclude: [".gitignore", ".git", "Gemfile"]
 highlighter: pygments
 paginate: 5
 paginate_path: "/page/:num"
+gems:
+- jekyll-paginate

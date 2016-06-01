@@ -21,8 +21,16 @@ html, body {
     bottom: 0px;
   }
 
-  #about-sidebar {
-    border-right: thin dotted $bgHighlight;
+  #about-blurb {
+    border-left: thin dotted $bgHighlight;
+  }
+}
+
+@media (max-width: 543px) {
+  #about-blurb {
+    border-top: thin dotted $bgHighlight;
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
   }
 }
 
@@ -143,4 +151,27 @@ body {
 // About page
 img#about-portrait {
   padding: 10%;
+}
+
+a#about-cv {
+  color: #fff;
+  background-color: $bgDefault;
+  border-color: $bgDefault;
+  &:hover, &:focus {
+    background-color: $bgHighlight;
+    border-color: $bgHighlight;
+  }
+}
+
+// Pager
+.page-link {
+  color: $bgDefault;
+}
+
+.page-item.active .page-link {
+  &, &:hover, &:focus {
+    color: $colDefault;
+    background-color: $bgDefault;
+    border-color: $bgDefault;
+  }
 }
