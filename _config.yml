@@ -9,3 +9,11 @@ paginate: 5
 paginate_path: "/page/:num"
 gems:
 - jekyll-paginate
+- autoprefixer-rails
+- sass
+- font-awesome-sass
+- bootstrap
+- jekyll-assets
+- uglifier
+assets:
+  digest: false

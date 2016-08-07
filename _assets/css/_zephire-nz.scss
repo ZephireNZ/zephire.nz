@@ -1,5 +1,8 @@
----
----
+@import "bootstrap/variables";
+@import "bootstrap/mixins/breakpoints";
+
+// Custom theming and layouts for zephire.nz
+
 $bgDefault      : #a94442;
 $bgHighlight    : #722e2d;
 $colDefault     : #e3e3e3;
@@ -9,9 +12,9 @@ html, body {
   height:100%;
 }
 
-@media (min-width: 544px) {
+@include media-breakpoint-up(sm) {
   .frontpage-item {
-    min-height: 70vh;
+    min-height: 70vmin;
   }
 
   .frontpage-caption {
@@ -26,7 +29,7 @@ html, body {
   }
 }
 
-@media (max-width: 543px) {
+@include media-breakpoint-down(xs) {
   #about-blurb {
     border-top: thin dotted $bgHighlight;
     margin-top: 0.6rem;
@@ -36,7 +39,7 @@ html, body {
 
 body {
   padding-top: 100px;
-  background-color: #e3e3e3;
+  background-color: $colDefault;
 }
 
 .frontpage-item .container {
@@ -46,7 +49,7 @@ body {
 .frontpage-item {
   box-shadow: 0px 0px 20px 5px rgba(50, 50, 50, 0.75);
   position: relative;
-  background-color: #a94442;
+  background-color: $bgDefault;
 }
 
 .frontpage-divider {
@@ -92,8 +95,8 @@ body {
   height: 70vmin;
   position: relative;
 
-  background-color: #a94442;
-  color: #fff;
+  background-color: $bgDefault;
+  color: $colHighlight;
   text-shadow: 0 1px 2px rgba(0,0,0,0.6);
 
   #post-title {
@@ -154,7 +157,7 @@ img#about-portrait {
 }
 
 a#about-cv {
-  color: #fff;
+  color: $colHighlight;
   background-color: $bgDefault;
   border-color: $bgDefault;
   &:hover, &:focus {
@@ -174,4 +177,18 @@ a#about-cv {
     background-color: $bgDefault;
     border-color: $bgDefault;
   }
+}
+
+// Projects
+
+#soon-wrench {
+  vertical-align: middle;
+  font-size: 15em;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+#soon-text {
+  vertical-align: middle;
+  text-align: center;
 }
