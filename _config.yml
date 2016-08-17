@@ -15,5 +15,6 @@ gems:
 - bootstrap
 - jekyll-assets
 - uglifier
+- jekyll-sitemap
 assets:
   digest: false

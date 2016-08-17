@@ -12,3 +12,4 @@ gem "uglifier"
 gem "autoprefixer-rails"
 gem "sass"
 gem "font-awesome-sass", '~> 4.6.2'
+gem "jekyll-sitemap"
