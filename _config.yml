@@ -1,7 +1,7 @@
 name: Zeph's Blog
 author: Brynley McDonald
 url: http://zephire.nz
-
+excerpt_separator: "<!--more-->"
 encoding: utf-8
 exclude: [".gitignore", ".git", "Gemfile"]
 highlighter: pygments
