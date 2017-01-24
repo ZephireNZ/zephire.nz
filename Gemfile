@@ -13,3 +13,5 @@ gem "autoprefixer-rails"
 gem "sass"
 gem "font-awesome-sass", '~> 4.6.2'
 gem "jekyll-sitemap"
+gem 'jekyll-app-engine'
+gem "rouge"
