@@ -1,0 +1,19 @@
+---
+runtime: go
+api_version: go1
+default_expiration: 300s
+handlers:
+- url: "/"
+  static_files: _site/index.html
+  upload: _site/index.html
+- url: "/about"
+  static_files: _site/about/index.html
+  upload: _site/about/index.html
+- url: "/projects"
+  static_files: _site/projects/index.html
+  upload: _site/projects/index.html
+- url: "/archive"
+  static_files: _site/archive/index.html
+  upload: _site/archive/index.html
+- url: "/*"
+  static_dir: _site
