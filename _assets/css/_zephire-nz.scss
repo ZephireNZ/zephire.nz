@@ -35,6 +35,11 @@ html, body {
     margin-top: 0.6rem;
     padding-top: 0.6rem;
   }
+
+  nav > .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 body {
@@ -129,6 +134,7 @@ body {
 
   .navbar-toggler {
     border-color: $bgHighlight;
+    height: 1.75em;
     &:hover, &:focus {
       background-color: $bgHighlight;
     }
