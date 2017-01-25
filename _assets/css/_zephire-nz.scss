@@ -3,95 +3,111 @@
 
 // Custom theming and layouts for zephire.nz
 
-$bgDefault      : #a94442;
-$bgHighlight    : #722e2d;
-$colDefault     : #e3e3e3;
-$colHighlight   : #ffffff;
+$highlightColor      : #a94442;
+$darkHighlightColor  : #722e2d;
+$greyColor           : #e3e3e3;
+$whiteColor          : #ffffff;
+
+// COMMON
 
 html, body {
   height:100%;
 }
 
-@include media-breakpoint-up(sm) {
-  .frontpage-item {
-    min-height: 70vmin;
-  }
-
-  .frontpage-caption {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-  }
-
-  #about-blurb {
-    border-left: thin dotted $bgHighlight;
-  }
+body {
+  padding-top: 3.5rem;
+  background-color: $greyColor;
 }
 
-@include media-breakpoint-down(xs) {
-  #about-blurb {
-    border-top: thin dotted $bgHighlight;
-    margin-top: 0.6rem;
-    padding-top: 0.6rem;
-  }
+a {
+  color: $highlightColor;
+}
 
+
+
+// NAV
+
+@include media-breakpoint-down(xs) {
   nav > .container {
     margin-left: 0;
     margin-right: 0;
   }
 }
 
-body {
-  padding-top: 100px;
-  background-color: $colDefault;
+// Nav Theme
+.navbar-custom {
+  background-color: $highlightColor;
+  border-bottom: 2px solid $darkHighlightColor;
+
+  .navbar-brand {
+    color: $whiteColor;
+  }
+
+  .navbar-toggler {
+    border-color: $darkHighlightColor;
+    height: 1.75em;
+    &:hover, &:focus {
+      background-color: $darkHighlightColor;
+    }
+  }
+
+  .dropdown.active {
+    > a, > a:hover, > a:focus {
+      color: $whiteColor;
+    }
+  }
+
+  .nav-link {
+    color: $greyColor;
+    &.active, &:hover,  &:focus {
+      color: $whiteColor;
+    }
+  }
+
+  .open {
+      > a, > a:hover, > a:focus {
+        color: $whiteColor;
+      }
+    }
 }
 
-.frontpage-item .container {
-  padding: 0px;
-}
+// FRONTPAGE
+
+//#frontpage {
+//  background-color: #e7e7e7;
+//}
+
+//@include media-breakpoint-up(sm) {
+//  #frontpage {
+//    box-shadow: 0px 0px 20px 5px rgba(50, 50, 50, 0.75);
+//    height: 100%;
+//  }
+//}
 
 .frontpage-item {
-  box-shadow: 0px 0px 20px 5px rgba(50, 50, 50, 0.75);
-  position: relative;
-  background-color: $bgDefault;
+    border-bottom: thin dotted $darkHighlightColor;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    &:last-of-type {
+        border-bottom: none;
+    }
 }
 
-.frontpage-divider {
-  height: 50px;
-}
-
-.item-bg {
-  background-color: rgba(0,0,0,0.5);
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-}
-
-.frontpage-caption {
-  text-align: left;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-  margin: 15px;
-}
-
-.frontpage-title {
-  h2 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  display: inline-block;
-  margin-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.frontpage-blurb {
-  display: block;
-  padding: 10px;
-  code {
-    background-color: rgba(0, 0, 0, 0.5);
+.page-link {
+  &, &:hover, &:focus {
+    color: $highlightColor;
   }
 }
+
+.page-item.active .page-link {
+  &, &:hover, &:focus {
+    color: $greyColor;
+    background-color: $highlightColor;
+    border-color: $highlightColor;
+  }
+}
+
+// ARTICLES
 
 #post {
   box-shadow: 0px 0px 20px 5px rgba(50, 50, 50, 0.75);
@@ -103,8 +119,8 @@ body {
   height: 70vmin;
   position: relative;
 
-  background-color: $bgDefault;
-  color: $colHighlight;
+  background-color: $highlightColor;
+  color: $whiteColor;
   text-shadow: 0 1px 2px rgba(0,0,0,0.6);
 
   #post-title {
@@ -123,41 +139,22 @@ body {
   padding: 20px;
 }
 
-// Nav Theme
-.navbar-custom {
-  background-color: $bgDefault;
-  border-color: $bgHighlight;
 
-  .navbar-brand {
-    color: $colHighlight;
+// ABOUT
+
+
+@include media-breakpoint-up(sm) {
+  #about-blurb {
+    border-left: thin dotted $darkHighlightColor;
   }
+}
 
-  .navbar-toggler {
-    border-color: $bgHighlight;
-    height: 1.75em;
-    &:hover, &:focus {
-      background-color: $bgHighlight;
-    }
+@include media-breakpoint-down(xs) {
+  #about-blurb {
+    border-top: thin dotted $darkHighlightColor;
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
   }
-
-  .dropdown.active {
-    > a, > a:hover, > a:focus {
-      color: $colHighlight;
-    }
-  }
-
-  .nav-link {
-    color: $colDefault;
-    &.active, &:hover,  &:focus {
-      color: $colHighlight;
-    }
-  }
-
-  .open {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-      }
-    }
 }
 
 // About page
@@ -166,29 +163,17 @@ img#about-portrait {
 }
 
 a#about-cv {
-  color: $colHighlight;
-  background-color: $bgDefault;
-  border-color: $bgDefault;
+  color: $whiteColor;
+  background-color: $highlightColor;
+  border-color: $highlightColor;
   &:hover, &:focus {
-    background-color: $bgHighlight;
-    border-color: $bgHighlight;
+    background-color: $darkHighlightColor;
+    border-color: $darkHighlightColor;
   }
 }
 
-// Pager
-.page-link {
-  color: $bgDefault;
-}
 
-.page-item.active .page-link {
-  &, &:hover, &:focus {
-    color: $colDefault;
-    background-color: $bgDefault;
-    border-color: $bgDefault;
-  }
-}
-
-// Projects
+// PROJECTS
 
 #soon-wrench {
   vertical-align: middle;
@@ -201,3 +186,7 @@ a#about-cv {
   vertical-align: middle;
   text-align: center;
 }
+
+// ARCHIVE
+
+

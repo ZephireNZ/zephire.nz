@@ -1,9 +1,3 @@
-///////////////////
-// CUSTOM STYLES //
-///////////////////
-
-@import "zephire-nz";
-
 ///////////////
 // BOOTSTRAP //
 ///////////////
@@ -67,4 +61,10 @@ $enable-flex: true;
 //////////////
 // PYGMENTS //
 //////////////
-@import "github-code"
+@import "github-code";
+
+///////////////////
+// CUSTOM STYLES //
+///////////////////
+
+@import "zephire-nz";
