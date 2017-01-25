@@ -7,18 +7,18 @@ Sponge has a powerful data system, that can do much more than just vanilla featu
 possible to create your own data objects, allowing you to serialize objects directly to 
 players, entities and more!
 
-<!--more-->
-
-To start making your own data, we recommend that you read up on each of the components of the ecosystem in the
-[data](https://docs.spongepowered.org/master/en/plugin/data/) documentation. You should understand how a fully 
-implemented system works before you begin work on your own implementation.
-
 There are three main areas of custom data:
 
 - `DataHolder`s, which store data such as items and entities
 - `DataManipulator`s, which are attached to a `DataHolder` and can contain any number of 
   serializable objects. Manipulators will stay attached to their owner, even across reboots
 - `DataSerializable`s, which can be saved/loaded into configs, files, or world files
+
+<!--more-->
+
+To start making your own data, we recommend that you read up on each of the components of the ecosystem in the
+[data](https://docs.spongepowered.org/master/en/plugin/data/) documentation. You should understand how a fully 
+implemented system works before you begin work on your own implementation.
 
 We will provide and explain snippets of code throughout the tutorials, however we also provide a 
 [full implementation](https://github.com/SpongePowered/Cookbook/tree/master/Plugin/MyHomes) for those that prefer 

@@ -9,7 +9,14 @@ like it's been marked up with tags or formatting instructions. While
 Markdown's syntax has been influenced by several existing text-to-HTML
 filters -- including Setext, atx, Textile, reStructuredText,
 Grutatext, and EtText -- the single biggest source of
-inspiration for Markdown's syntax is the format of plain text email."
+inspiration for Markdown's syntax is the format of plain text email.
+
+To this end, Markdown's syntax is comprised entirely of punctuation
+characters, which punctuation characters have been carefully chosen so
+as to look like what they mean. E.g., asterisks around a word actually
+look like *emphasis*. Markdown lists look like, well, lists. Even
+blockquotes look like quoted passages of text, assuming you've ever
+used email."
 
 ---
 
