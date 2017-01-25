@@ -134,6 +134,9 @@ a {
 
 // ABOUT
 
+#about-blurb {
+  margin-top: 1rem;
+}
 
 @include media-breakpoint-up(sm) {
   #about-blurb {
@@ -169,14 +172,17 @@ a#about-cv {
 
 #soon-wrench {
   vertical-align: middle;
-  font-size: 15em;
-  padding-bottom: 15px;
-  padding-top: 15px;
+  text-align: center;
+  font-size: 12rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 #soon-text {
   vertical-align: middle;
   text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 // ARCHIVE
