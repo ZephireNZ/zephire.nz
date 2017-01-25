@@ -49,6 +49,7 @@ a {
   .navbar-toggler {
     border-color: $darkHighlightColor;
     height: 1.75em;
+    float: right;
     &:hover, &:focus {
       background-color: $darkHighlightColor;
     }
