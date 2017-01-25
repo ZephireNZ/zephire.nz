@@ -20,6 +20,9 @@ body {
 }
 
 a {
+  &:hover, &:active, &:focus, &:visited {
+    color: $darkHighlightColor;
+  }
   color: $highlightColor;
 }
 
