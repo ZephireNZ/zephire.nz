@@ -24,7 +24,28 @@ We will provide and explain snippets of code throughout the tutorials, however w
 [full implementation](https://github.com/SpongePowered/Cookbook/tree/master/Plugin/MyHomes) for those that prefer 
 to look through an example implementation.
 
-TODO: Table of Contents
+**This article was originally created by me for [SpongeDocs](https://docs.spongepowered.org/).**
+
+*Table of Contents*
+
+<!-- - [DataManipulators](#datamanipulators)
+  - [Values](#values)
+  - [Serialization](#serialization)
+  - [Single Types](#single-types)
+    - [Simple Single Types](#simple-single-types)
+    - [Custom Single Types](#custom-single-types)
+  - [Compound Types](#compound-types)
+  - [Registering Values](#registering-values)
+- [Serializing Custom Data](#serializing-custom-data)
+  - [Reading DataViews](#reading-dataviews)
+  - [DataBuilders](#databuilders)
+  - [DataContentUpdaters](#datacontentupdaters)
+  - [DataManipulatorBuilders](#datamanipulatorbuilders)
+  - [DataTranslators](#datatranslators)
+-->
+
+* TOC
+{:toc}
 
 ## DataManipulators ##
 
@@ -40,17 +61,17 @@ limits on the upper and lower bound of an `Comparable` objects like integers.
 
 Now, pick which of the `AbstractData` types you'll extend from. While you could implement from scratch, these
 abstract types remove a *lot* of the work that needs to be done implementing the required methods. A full list can be 
-found in `org.spongepowered.api.data.manipulator.mutable.common`. See either :ref:`single-data-types` or 
-:ref:`compound-data-types` below for implementation details each type.
+found in `org.spongepowered.api.data.manipulator.mutable.common`. See either [Single Types](#single-types) or 
+[Compound Types](#compound-types) below for implementation details each type.
 
 You need to create two different classes - one which is mutable and implements `DataManipulator` and your
 abstract type, and an immutable version which implements `ImmutableDataManipulator` and your *immutable* 
 abstract type.
 
-{% include alert.html type="info" title="Note" content="<b>All</b> data must have mutable and immutable versions, you must implement both." %}
+{% include alert.html type="warning" title="Note" content="<b>All</b> data must have mutable and immutable versions, you must implement both." %}
 
 For all types, you'll need to define the `DataManipulator#asImmutable()`/
-`ImmutableDataManipulator#asMutable() {asMutable()}` methods - this is as simple as copying the existing
+`ImmutableDataManipulator#asMutable()` methods - this is as simple as copying the existing
 objects into a constructor for the alternate version.
 
 ### Values ###
@@ -115,7 +136,7 @@ values. They are created in one of two ways:
 {% endcapture %}
 {% capture tokens_content %}{{ tokens_content | markdownify }}{% endcapture %}
 
-{% include alert.html type="info" title="Note" content=tokens_content %}
+{% include alert.html type="info" title="Tip" content=tokens_content %}
 
     
 
@@ -124,13 +145,9 @@ values. They are created in one of two ways:
 To make your data serializable to `DataHolder`s or config files, you must also
 implement `DataSerializable#toContainer()`. We recommend calling `super.toContainer()` as this will
 include the version from `DataSerializable#getContentVersion()`. You should increase the version each time a
-change is made to the format of your serialized data, and use :ref:`content-updaters` to allow backwards compatability.
+change is made to the format of your serialized data, and use [DataContentUpdaters](#datacontentupdaters) to allow backwards compatability.
 
-.. note::
-
-    
-
-{% include alert.html type="info" title="Note" content="This is not required for simple single types, as the already implement <code>toContainer()</code>" %}
+{% include alert.html type="warning" title="Note" content="This is not required for simple single types, as the already implement <code>toContainer()</code>" %}
 
 **Code Example: Implementing toContainer**
 
@@ -168,10 +185,14 @@ The "simple" abstract types are the easiest to implement, but are restricted to 
 For all other types you must implement a custom single type by extending `AbstractSingleData`. This allows you to 
 define your own single data with whatever type you want, while still doing most of the work for you.
 
-.. tip::
+{% capture getters_content %}
+The abstract implementations save the object for you in the constructor. You can access it in your implementation 
+by calling the `getValue()` and `getValueGetter()` methods.
+{% endcapture %}
+{% capture getters_content %}{{ getters_content | markdownify }}{% endcapture %}
 
-    The abstract implementations save the object for you in the constructor. You can access it in your implementation 
-    by calling the `getValue()` and `getValueGetter()` methods.
+{% include alert.html type="info" title="Tip" content=getters_content %}
+    
 
 #### Simple Single Types ####
 
@@ -183,10 +204,15 @@ Almost all the work is done for you with simple abstract types. All you need to 
 `AbstractBoundedComparableData` (and the immutable equivalent) additionally require minimum and maximum 
 values that will be checked, as well as a `Comparator`.
 
-.. note::
+{% capture implement_content %}
+`List` and `Mapped` single types must instead implement `ListData` / `MappedData` (or the immutable 
+equivalent). This adds additional methods to allow Map-like/List-like behavior directly on the `DataManipulator`.
+{% endcapture %}
+{% capture implement_content %}{{ implement_content | markdownify }}{% endcapture %}
 
-    `List` and `Mapped` single types must instead implement `ListData` / `MappedData` (or the immutable 
-    equivalent). This adds additional methods to allow Map-like/List-like behavior directly on the `DataManipulator`.
+{% include alert.html type="warning" title="Note" content=implement_content %}
+
+    
 
 The following 3 methods must be defined on mutable manipluators:
 
@@ -305,12 +331,12 @@ but loading all your values.
 
 ## Serializing Custom Data ##
 
-Without a method serializing and deserializng, your data will not persist across restarts. Sponge has a few different 
+Without a method serializing and deserializing, your data will not persist across restarts. Sponge has a few different 
 ways to serialize/deserialize data based on the type of data:
 
 - `DataSerializable`s implement an interface to perform serialization, and use `DataBuilder` for 
   deserialization and creation
-- :doc:`DataManipulators <../datamanipulators>` also implement `DataSerializable`, but instead use a 
+- `DataManipulator`s also implement `DataSerializable`, but instead use a 
   `DataManipulatorBuilder` for deserialization and creation
 - Objects that do not or cannot implement `DataSerializable` use `DataTranslator` for both serialization 
   and deserialization
@@ -336,10 +362,13 @@ the container there are a few ways ways that are far more convenient:
 In all cases you need to specify a path using a `DataQuery`. If your data has a corresponding `Key` this is 
 as easy as calling `key.getQuery()`.  Otherwise, the easiest way to do this is with `DataQuery.of("name")`.
 
-.. tip::
+{% capture query_content %}
+DataQueries can be used to reference data multiple nodes down a tree by using, for example, 
+`DataQuery.of("my", "custom", "data")`. 
+{% endcapture %}
+{% capture query_content %}{{ query_content | markdownify }}{% endcapture %}
 
-    DataQueries can be used to reference data multiple nodes down a tree by using, for example, 
-    `DataQuery.of("my", "custom", "data")`. 
+{% include alert.html type="info" title="Tip" content=query_content %}
 
 ### DataBuilders ###
 
@@ -351,10 +380,14 @@ two methods:
   whatever you want in the returned `DataContainer`, so long as it is also serializable using one of the methods 
   above. Just use the `set(DataQuery, Object)` method to save your data to the given path. 
 
-.. tip::
-    
-    It is recommended that you save the version of your data to the container as well using `Queries.CONTENT_VERSION`
-    as the query. This will allow for versioning upgrades with :ref:`content-updaters`.
+{% capture version_content %}
+It is recommended that you save the version of your data to the container as well using `Queries.CONTENT_VERSION`
+as the query. This will allow for versioning upgrades with [Content Updaters](#datacontentupdaters).
+{% endcapture %}
+{% capture tokens_content %}{{ version_content | markdownify }}{% endcapture %}
+
+{% include alert.html type="info" title="Tip" content=version_content %}
+
 
 **Code Example: Implementing toContainer**
 
@@ -441,15 +474,19 @@ deserializing manipulators:
 
 Just like `DataBuilder`, you should read and return your manipulator in the relevant `build` method.
 
-`DataManipulatorBuilder`s can make use of :ref:`content-updaters` as well, as long as you implement 
+`DataManipulatorBuilder`s can make use of [DataContentUpdaters](#datacontentupdaters) as well, as long as you implement 
 `AbstractDataBuilder`.
 
 Registering a `DataManipulatorBuilder` is also similar to `DataBuilder` but uses the `register()` method. You 
 must reference both your mutable and immutable classes in the method, in addition to an instance of your builder. 
 
-.. note::
 
-    You **must** reference the implementation classes if you have split the API from the implementaton.
+{% capture impl_content %}
+You **must** reference the implementation classes if you have split the API from the implementaton.
+{% endcapture %}
+{% capture impl_content %}{{ impl_content | markdownify }}{% endcapture %}
+
+{% include alert.html type="warning" title="Note" content=impl_content %}
 
 ### DataTranslators ###
 
