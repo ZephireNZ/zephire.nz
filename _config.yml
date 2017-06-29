@@ -3,7 +3,8 @@ author: Brynley McDonald
 url: http://zephire.nz
 excerpt_separator: "<!--more-->"
 encoding: utf-8
-exclude: [".gitignore", ".git", "Gemfile", "Gemfile.lock", "init.go"]
+exclude: ["Gemfile", "Gemfile.lock", "init.go"]
+include: [".well-known"]
 highlighter: rouge
 markdown: kramdown
 
