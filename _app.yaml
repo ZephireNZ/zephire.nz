@@ -3,6 +3,8 @@ runtime: go
 api_version: go1
 default_expiration: 300s
 handlers:
+- url: /.well-known/acme-challenge
+  static_dir: _challenge
 - url: "/"
   static_files: _site/index.html
   upload: _site/index.html
