@@ -9,14 +9,19 @@ handlers:
 - url: "/"
   static_files: _site/index.html
   upload: _site/index.html
+  secure: always
 - url: "/about"
   static_files: _site/about/index.html
   upload: _site/about/index.html
+  secure: always
 - url: "/projects"
   static_files: _site/projects/index.html
   upload: _site/projects/index.html
+  secure: always
 - url: "/archive"
   static_files: _site/archive/index.html
   upload: _site/archive/index.html
+  secure: always
 - url: "/*"
   static_dir: _site
+  secure: always
