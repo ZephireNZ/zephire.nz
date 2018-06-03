@@ -2,5 +2,6 @@
 *.iml
 _site/
 .asset-cache/
+.jekyll-cache/
 **/*~
 *.pyc
