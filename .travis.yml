@@ -14,6 +14,7 @@ before_deploy:
 deploy:
   provider: gae
   keyfile: _gae-secret.json
+  config: _app.yaml
   on: master
   no_promote: true
   project: decent-space-136523
