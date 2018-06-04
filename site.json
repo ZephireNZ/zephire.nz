@@ -1,0 +1,19 @@
+---
+---
+
+[
+  {% for post in site.posts%}"{{post.url}}",
+  {% endfor %}
+  "/",
+  "/about/",
+  "/projects/",
+  "/archive/",
+  "{% asset main.css @path %}",
+  "{% asset main.js @path %}",
+  "{% asset portrait-small.png @path %}",
+  "{% asset font-awesome/fontawesome-webfont.woff @path %}",
+  "{% asset font-awesome/fontawesome-webfont.woff2 @path %}",
+  "https://code.jquery.com/jquery-3.3.1.slim.min.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js",
+  "https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+]

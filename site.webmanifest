@@ -2,7 +2,7 @@
 ---
 {
     "name": "Zeph's Blog",
-    "short_name": "Zeph's Blog",
+    "short_name": "Zeph",
     "icons": [
         {
             "src": "{% asset icon-round-192.png @path %}",
@@ -22,6 +22,6 @@
     ],
     "theme_color": "#a94442",
     "background_color": "#a94442",
-    "start_url": "https://zephire.nz",
+    "start_url": "/",
     "display": "standalone"
 }
