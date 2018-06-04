@@ -5,6 +5,7 @@ rvm:
 branches:
   only:
   - master
+install: bundle install --full-index
 script:
 - bundle exec jekyll build
 before_deploy:
