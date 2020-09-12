@@ -4,8 +4,6 @@ api_version: 1
 threadsafe: true
 default_expiration: 300s
 handlers:
-- url: /.well-known/acme-challenge/.*
-  script: well_known.app
 - url: "/"
   static_files: _site/index.html
   upload: _site/index.html
