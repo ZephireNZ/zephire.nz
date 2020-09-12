@@ -1,5 +1,3 @@
----
----
 var cacheName = 'zephire-nz-blog';
 
 self.addEventListener('install', function(e) {
@@ -7,7 +5,7 @@ self.addEventListener('install', function(e) {
 
   e.waitUntil(
     caches.open(cacheName).then(function(cache) {
-      fetch('/site.json').then(function(response) {
+      fetch('/assets/js/site.json').then(function(response) {
         return response.json();
       }).then(function(urls) {
         console.log('[ServiceWorker] Adding URLs');

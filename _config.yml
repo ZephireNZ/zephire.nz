@@ -7,7 +7,6 @@ exclude: ["Gemfile", "Gemfile.lock", "init.go"]
 include: [".well-known"]
 highlighter: rouge
 markdown: kramdown
-
 kramdown:
   input: GFM
   syntax_highlighter: rouge
@@ -15,12 +14,7 @@ paginate: 5
 paginate_path: "/page/:num"
 plugins:
 - jekyll-paginate
-- autoprefixer-rails
-- sass
-- font-awesome-sass
-- bootstrap
-- jekyll-assets
-- uglifier
 - jekyll-sitemap
-assets:
-  digest: false
+- jekyll-autoprefixer
+sass:
+  style: compressed
