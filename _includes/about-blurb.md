@@ -1,19 +1,22 @@
 # About Me #
 
-Hi, I'm Brynley - AKA ZephireNZ (or Zeph, for short) online. 
+Hi, I'm Brynley - aka ZephireNZ (or Zeph, for short). 
 
-I'm a 3rd year computer science student studying a the University of Auckland.
+I am currently working at 2degrees as a Data Analyst, providing our Customer Care team the data and insights they
+need to make informed decisions. I previously worked as a Customer Care Specialist for over a year, so I have
+hands-on experience dealing with mobile and broadband telecommunications.
+
+I have a Bachelor of Computer Science/Logic and Computation from University of Auckland, where I graduated in 2016.
 
 I've spent my life around computers, from building a website at the age of 12, to contributing to large open-source 
 projects.
 
 # My Skills #
 
-I have over 3 years of experience working with Java. Primarily building customised "plugins" for a Minecraft server, 
-but recently have started to dabble in Android development as a skill building excercise.
+I have a highly analytical mind, and a broad set of computing skills to match.
 
-I also have some experience building bash and python scripts, however I'm by no means an expert.
+- Data Analysis and Reporting including SQL, Splunk, Excel and Tableau
+- Full Stack Development, including Java, Python, Javascript, HTML and CSS
+- DevOps and Server Management, including Docker and Linux servers
 
-While I can't call myself a senior developer with a decade of experience, I can say that I'm very quick to learn new
-skills and languages, either for my own personal experience or as a requirement for a project. From a small API
-function to a whole new framework, I enjoy discovering and playing with new things.
+Just to name a few! I am always willing to upskill and learn new concepts, stacks, and languages as as the need arises.
