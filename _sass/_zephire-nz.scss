@@ -3,15 +3,16 @@
 
 // Custom theming and layouts for zephire.nz
 
-$highlightColor      : #a94442;
-$darkHighlightColor  : #722e2d;
-$greyColor           : #e3e3e3;
-$whiteColor          : #ffffff;
+$highlightColor: #a94442;
+$darkHighlightColor: #722e2d;
+$greyColor: #e3e3e3;
+$whiteColor: #ffffff;
 
 // COMMON
 
-html, body {
-  height:100%;
+html,
+body {
+  height: 100%;
 }
 
 body {
@@ -20,13 +21,14 @@ body {
 }
 
 a {
-  &:hover, &:active, &:focus, &:visited {
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited {
     color: $darkHighlightColor;
   }
   color: $highlightColor;
 }
-
-
 
 // NAV
 
@@ -51,30 +53,37 @@ a {
     border-color: $darkHighlightColor;
     height: 1.75em;
     float: right;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: $whiteColor;
       background-color: $darkHighlightColor;
     }
   }
 
   .dropdown.active {
-    > a, > a:hover, > a:focus {
+    > a,
+    > a:hover,
+    > a:focus {
       color: $whiteColor;
     }
   }
 
   .nav-link {
     color: $greyColor;
-    &.active, &:hover,  &:focus {
+    &.active,
+    &:hover,
+    &:focus {
       color: $whiteColor;
     }
   }
 
   .open {
-      > a, > a:hover, > a:focus {
-        color: $whiteColor;
-      }
+    > a,
+    > a:hover,
+    > a:focus {
+      color: $whiteColor;
     }
+  }
 }
 
 // FRONTPAGE
@@ -91,22 +100,26 @@ a {
 //}
 
 .frontpage-item {
-    border-bottom: thin dotted $darkHighlightColor;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    &:last-of-type {
-        border-bottom: none;
-    }
+  border-bottom: thin dotted $darkHighlightColor;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  &:last-of-type {
+    border-bottom: none;
+  }
 }
 
 .page-link {
-  &, &:hover, &:focus {
+  &,
+  &:hover,
+  &:focus {
     color: $highlightColor;
   }
 }
 
 .page-item.active .page-link {
-  &, &:hover, &:focus {
+  &,
+  &:hover,
+  &:focus {
     color: $greyColor;
     background-color: $highlightColor;
     border-color: $highlightColor;
@@ -130,9 +143,7 @@ a {
 
 #post-content {
   padding: 1em;
-  overflow-x: scroll;
 }
-
 
 // ABOUT
 
@@ -163,12 +174,12 @@ a#about-cv {
   color: $whiteColor;
   background-color: $highlightColor;
   border-color: $highlightColor;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: $darkHighlightColor;
     border-color: $darkHighlightColor;
   }
 }
-
 
 // PROJECTS
 
@@ -188,5 +199,3 @@ a#about-cv {
 }
 
 // ARCHIVE
-
-
