@@ -4,22 +4,26 @@ api_version: 1
 threadsafe: true
 default_expiration: 300s
 handlers:
-- url: "/"
-  static_files: _site/index.html
-  upload: _site/index.html
-  secure: always
-- url: "/about"
-  static_files: _site/about/index.html
-  upload: _site/about/index.html
-  secure: always
-- url: "/projects"
-  static_files: _site/projects/index.html
-  upload: _site/projects/index.html
-  secure: always
-- url: "/archive"
-  static_files: _site/archive/index.html
-  upload: _site/archive/index.html
-  secure: always
-- url: "/*"
-  static_dir: _site
-  secure: always
+  - url: "/"
+    static_files: _site/index.html
+    upload: _site/index.html
+    secure: always
+  - url: "/about"
+    static_files: _site/about/index.html
+    upload: _site/about/index.html
+    secure: always
+  - url: "/projects"
+    static_files: _site/projects/index.html
+    upload: _site/projects/index.html
+    secure: always
+  - url: "/archive"
+    static_files: _site/archive/index.html
+    upload: _site/archive/index.html
+    secure: always
+  - url: "/plextranscode" # Shortlink to blog post
+    static_files: _site/2020/02/06/plex-transcode.html
+    upload: _site/2020/02/06/plex-transcode.html
+    secure: always
+  - url: "/*"
+    static_dir: _site
+    secure: always

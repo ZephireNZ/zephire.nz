@@ -30,6 +30,13 @@ a {
   color: $highlightColor;
 }
 
+a.anchor {
+  display: block;
+  position: relative;
+  top: -100px;
+  visibility: hidden;
+}
+
 // NAV
 
 @include media-breakpoint-down(xs) {

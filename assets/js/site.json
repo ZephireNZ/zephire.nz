@@ -5,9 +5,10 @@
   {% for post in site.posts%}"{{post.url}}",
   {% endfor %}
   "/",
-  "/about/",
-  "/projects/",
-  "/archive/",
+  "/about",
+  "/projects",
+  "/archive",
+  "/plextranscode",
   "/assets/css/main.css",
   "/assets/js/main.js",
   "/assets/img/portrait-small.png",
