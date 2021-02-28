@@ -17,10 +17,13 @@ Below are screenshots and step by step instructions on how to do so.
 
 Device Types:
 
-- [Plex Web / Plex for Windows](#plexweb)
-- [Plex Android](#plexandroid)
+- [Plex Web / Plex Desktop](#plexweb)
+- [Plex Android / iOS](#plexmobile)
+- [Plex for Smart TV](#plextv) (Samsung, Android, Fire TV, Roku TV)
+- [Plex for Apple TV](#plexappletv)
+- [Plex Media Player](#plexmediaplayer) (PMP)
 
-### <a class="anchor" name="plexweb" /> Plex Web / Plex for Windows
+### <a class="anchor" name="plexweb" /> Plex Web / Plex Desktop
 
 1. Open up Plex, and start playing a video
 2. Pause the video, and click on the settings button (highlighed in red below)
@@ -30,7 +33,7 @@ Device Types:
 4. If you don't see `Play Original Quality`, your device can't support original playback on this video, check with
    another video
 
-### <a class="anchor" name="plexandroid" /> Plex Android
+### <a class="anchor" name="plexmobile" /> Plex Android / iOS
 
 1. Open up Plex, and start playing a video
 2. Pause the video, and click on the `...` button (highlighed in red below)
@@ -38,5 +41,29 @@ Device Types:
 3. Pick `Playback Settings`
 4. Next to `Quality`, click the quality name and make sure `Play Original Quality` is ticked
    [![Screenshot showing the quality setting](/assets/img/post/plex-transcode/plex-android-2.png){:.img-fluid}](/assets/img/post/plex-transcode/plex-android-2.png){:target="\_blank"}
+5. If you don't see `Play Original Quality`, your device can't support original playback on this video, check with
+   another video
+
+### <a class="anchor" name="plextv" /> Plex for Smart TV
+
+1. Open up Plex, and start playing a video
+2. Pause the video, and click on the `...` button
+3. Pick `Video Quality`
+4. Ensure that `Original` is ticked
+5. If you don't see `Play Original Quality`, your device can't support original playback on this video, check with
+   another video
+
+### <a class="anchor" name="plexappletv" /> Plex for Apple TV
+
+TBC
+
+### <a class="anchor" name="plexmediaplayer" /> Plex Media Player
+
+1. Open up Plex, and start playing a video
+2. Pause the video, and click on the settings (<span class="fa fa-sliders" aria-hidden="true"></span>) button
+   [![Screenshot showing the settings button](/assets/img/post/plex-transcode/pmp-1.png){:.img-fluid}](/assets/img/post/plex-transcode/pmp-1.png){:target="\_blank"}
+3. Pick `Quality`
+4. Ensure that `Play Original Quality` is selected
+   [![Screenshot showing the quality setting](/assets/img/post/plex-transcode/pmp-2.png){:.img-fluid}](/assets/img/post/plex-transcode/pmp-2.png){:target="\_blank"}
 5. If you don't see `Play Original Quality`, your device can't support original playback on this video, check with
    another video
