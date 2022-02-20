@@ -14,7 +14,7 @@
     "analyze": "cem analyze --litelement --globs \"src/**/*.ts\"",
     "analyze:watch": "cem analyze --litelement --globs \"src/**/*.ts\" --watch",
     "serve": "npm-run-all clean -p serve:*",
-    "serve:wds": "wds --watch --root-dir _build/",
+    "serve:wds": "wds --app-index _build/index.html --watch --root-dir _build/",
     "serve:rollup": "rollup -c -w",
     "checksize": "rollup -c ; cat ./build/index.bundled.js | gzip -9 | wc -c ; rm ./build/index.bundled.js"
   },
@@ -37,6 +37,7 @@
     "@material/theme": "^13.0.0",
     "@mdi/js": "^6.4.95",
     "@types/marked": "^4.0.2",
+    "@vaadin/router": "^1.7.4",
     "gray-matter": "^4.0.3",
     "lit": "^2.0.0",
     "marked": "^4.0.12",

@@ -10,7 +10,7 @@ import {LitElement, html, css} from 'lit';
 import {customElement, property, query} from 'lit/decorators.js';
 import { listenMediaQuery } from "./util";
 
-import "./zeph-blog-post";
+import "./zeph-page-router";
 
 @customElement('zeph-root')
 export class ZephRoot extends LitElement {
@@ -128,13 +128,11 @@ export class ZephRoot extends LitElement {
                     <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
                     <mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
                     <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
-                    <slot name="content">
-                        <zeph-blog-post
-                            postName="2014-10-12-markdown-test"
-                        >
 
-                        </zeph-blog-post>
-                    </slot>
+                    <!-- Content -->
+                    <zeph-page-router>
+
+                    </zeph-page-router>
                 </mwc-top-app-bar-fixed>
             </div>
         </mwc-drawer>
