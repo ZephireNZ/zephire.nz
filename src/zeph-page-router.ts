@@ -28,6 +28,8 @@ export class ZephPageRouter extends LitElement {
             router.setRoutes([
                 {path: '/', component: 'zeph-homepage'},
                 {path: '/posts/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:name', component: 'zeph-blog-post'},
+                {path: '/posts', component: 'zeph-archive'},
+                {path: '(.*)', component: 'zeph-404'},
             ])
         })
     }

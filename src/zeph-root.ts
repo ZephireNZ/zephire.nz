@@ -11,6 +11,7 @@ import {customElement, property, query} from 'lit/decorators.js';
 import { listenMediaQuery } from "./util";
 
 import "./zeph-page-router";
+import { Button } from "@material/mwc-button";
 
 @customElement('zeph-root')
 export class ZephRoot extends LitElement {
@@ -29,6 +30,12 @@ export class ZephRoot extends LitElement {
 
     private _expandNav() {
         this.drawer.open = !this.drawer.open;
+    }
+
+    private _pageLink(e: MouseEvent) {
+        const button = e.target as Button;
+        history.pushState(null, '', button.getAttribute("href"))
+        window.dispatchEvent(new PopStateEvent('popstate')); // Required by vaadin-router
     }
 
     static override styles = [
@@ -72,6 +79,10 @@ export class ZephRoot extends LitElement {
             #sidebar-links a {
                 color: inherit;
                 text-decoration: inherit;
+            }
+
+            mwc-top-app-bar-fixed mwc-button {
+                --mdc-theme-primary: --mdc-theme-on-primary;
             }
 
 
@@ -125,9 +136,8 @@ export class ZephRoot extends LitElement {
                 <mwc-top-app-bar-fixed>
                     <mwc-icon-button icon="menu" slot="navigationIcon" @click=${this._expandNav}></mwc-icon-button>
                     <div slot="title">Zeph's Blog</div>
-                    <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
-                    <mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
-                    <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
+                    <mwc-button icon="home" slot="actionItems" label="Home" href="/" @click=${this._pageLink}></mwc-button>
+                    <mwc-button icon="inventory" slot="actionItems" label="Post Archive" href="/posts" @click=${this._pageLink}></mwc-button>
 
                     <!-- Content -->
                     <zeph-page-router>
