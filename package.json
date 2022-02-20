@@ -32,13 +32,18 @@
     "@material/mwc-button": "^0.25.3",
     "@material/mwc-drawer": "^0.25.3",
     "@material/mwc-icon-button": "^0.25.3",
+    "@material/mwc-list": "^0.25.3",
     "@material/mwc-top-app-bar-fixed": "^0.25.3",
     "@material/theme": "^13.0.0",
     "@mdi/js": "^6.4.95",
+    "@types/marked": "^4.0.2",
+    "gray-matter": "^4.0.3",
     "lit": "^2.0.0",
+    "marked": "^4.0.12",
     "material-icons": "^1.10.6"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-replace": "^3.0.0",
     "@rollup/plugin-typescript": "^8.3.0",

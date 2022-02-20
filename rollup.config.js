@@ -11,6 +11,7 @@ import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
 import copy from 'rollup-plugin-copy';
 import nodePolyfills from 'rollup-plugin-polyfill-node';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default {
   input: 'src/index.ts',
@@ -26,8 +27,15 @@ export default {
   },
   plugins: [
     typescript(),
+    commonjs(),
     nodePolyfills({
-      include: ["lit/polyfill-support", "@webcomponents/webcomponentsjs/webcomponents-loader"],
+      // include: [
+      //   "lit/polyfill-support",
+      //   "@webcomponents/webcomponentsjs/webcomponents-loader",
+      //   "marked",
+      //   "gray-matter",
+      //   "strip-bom-string"
+      // ],
     }),
     copy({
       targets: [

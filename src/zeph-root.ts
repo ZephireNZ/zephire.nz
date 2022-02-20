@@ -4,11 +4,13 @@ import "@material/mwc-top-app-bar-fixed";
 import "@material/mwc-icon-button";
 import "@material/mwc-button";
 import { commonStyles } from './styles';
+import { mdiTwitter, mdiGithub, mdiLinkedin } from "@mdi/js";
 
 import {LitElement, html, css} from 'lit';
 import {customElement, property, query} from 'lit/decorators.js';
 import { listenMediaQuery } from "./util";
 
+import "./zeph-blog-post";
 
 @customElement('zeph-root')
 export class ZephRoot extends LitElement {
@@ -67,6 +69,11 @@ export class ZephRoot extends LitElement {
                 --mdc-top-app-bar-width: calc(100% - var(--mdc-drawer-width, 256px));
             }
 
+            #sidebar-links a {
+                color: inherit;
+                text-decoration: inherit;
+            }
+
 
         `
     ];
@@ -90,25 +97,45 @@ export class ZephRoot extends LitElement {
                 >
                 </mwc-button>
                 <div id="sidebar-links">
-                    <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
-                    <mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
-                    <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
+                    <a href="https://github.com/ZephireNZ" target="_blank">
+                        <mwc-icon-button>
+                            <svg>
+                                <path d=${mdiGithub} />
+                            </svg>
+                        </mwc-icon-button>
+                    </a>
+                    <a href="https://twitter.com/ZephireNZ" target="_blank">
+                        <mwc-icon-button>
+                            <svg>
+                                <path d=${mdiTwitter} />
+                            </svg>
+                        </mwc-icon-button>
+                    </a>
+                    <a href="https://www.linkedin.com/in/brynley-mcdonald-413191112/" target="_blank">
+                        <mwc-icon-button>
+                            <svg>
+                                <path d=${mdiLinkedin} />
+                            </svg>
+                        </mwc-icon-button>
+                    </a>
                 </div>
             </div>
-            
-
 
             <div slot="appContent">
                 <mwc-top-app-bar-fixed>
                     <mwc-icon-button icon="menu" slot="navigationIcon" @click=${this._expandNav}></mwc-icon-button>
-                    <div slot="title">Title</div>
+                    <div slot="title">Zeph's Blog</div>
                     <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
                     <mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
                     <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
-                    <div>Here Goes Content!</div>
-                </mwc-top-app-bar-fixed>
+                    <slot name="content">
+                        <zeph-blog-post
+                            postName="2014-10-12-markdown-test"
+                        >
 
-                <slot name="content"></slot>
+                        </zeph-blog-post>
+                    </slot>
+                </mwc-top-app-bar-fixed>
             </div>
         </mwc-drawer>
         `;
