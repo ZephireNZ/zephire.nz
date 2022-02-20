@@ -12,6 +12,7 @@ import typescript from '@rollup/plugin-typescript';
 import copy from 'rollup-plugin-copy';
 import nodePolyfills from 'rollup-plugin-polyfill-node';
 import commonjs from '@rollup/plugin-commonjs';
+import dev from 'rollup-plugin-dev';
 
 export default {
   input: 'src/index.ts',
@@ -28,15 +29,7 @@ export default {
   plugins: [
     typescript(),
     commonjs(),
-    nodePolyfills({
-      // include: [
-      //   "lit/polyfill-support",
-      //   "@webcomponents/webcomponentsjs/webcomponents-loader",
-      //   "marked",
-      //   "gray-matter",
-      //   "strip-bom-string"
-      // ],
-    }),
+    nodePolyfills(),
     copy({
       targets: [
         { src: 'static/*', dest: '_build/' },
@@ -58,5 +51,10 @@ export default {
       },
     }),
     summary(),
+    dev({
+      dirs: ["_build"],
+      spa: true,
+      port: 8000,
+    }),
   ],
 };
