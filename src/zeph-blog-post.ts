@@ -19,63 +19,31 @@ interface PostParams {
 @customElement('zeph-blog-post')
 export class ZephBlogPost extends LitElement {
 
-    @property() public postName?: string;
-
     @property({ attribute: false})
-    public location?: RouterLocation;
+    public location!: RouterLocation;
 
     static override styles = [
         commonStyles,
-        css`
-            div#container {
-                margin-left: auto;
-                margin-right: auto;
-                max-width: 100%;
-            }
-
-            @media (min-width: 576px) {
-                div#container {
-                    max-width: 540px;
-                }
-            }
-
-            @media (min-width: 768px) {
-                div#container {
-                    max-width: 720px;
-                }
-            }
-
-            @media (min-width: 992px) {
-                div#container {
-                    max-width: 960px;
-                }
-            }
-
-            @media (min-width: 1200px) {
-                div#container {
-                    max-width: 1140px;
-                }
-            }
-        `
     ]
 
     override render() {
-        if (this.location) {
-            const params: PostParams = this.location.params as unknown as PostParams;
-            this.postName = `${params.year}-${params.month}-${params.day}-${params.name}`
-        }
+        const params: PostParams = this.location.params as unknown as PostParams;
+        const postName = `${params.year}-${params.month}-${params.day}-${params.name}`
         
-        const post_meta = fetch(`/posts/${this.postName}.md`)
+        const post_meta = fetch(`/posts/${postName}.md`)
                             .then(p => p.text())
                             .then(p => matter(p))
 
-        const post_html = post_meta.then(p => convertMarkdown(p.content))
+        const post_html = post_meta.then(p => {
+            return html`
+                <h2>${p.data.title}</h2>
+                <p class="mdc-typography--subtitle1">${params.year}-${params.month}-${params.day}</p>
+                <hr />
+                ${unsafeHTML(convertMarkdown(p.content))}
+            `
+        })
 
-        return html`
-            <div id="container">
-                ${until(post_html.then(unsafeHTML), html`<span>Loading...</span>`)}
-            </div>
-        `;
+        return html`${until(post_html, html`<span>Loading...</span>`)}`;
     }
 }
 

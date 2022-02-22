@@ -16,6 +16,51 @@ import dev from 'rollup-plugin-dev';
 import scss from 'rollup-plugin-scss';
 import json from '@rollup/plugin-json';
 
+import * as fs from 'fs/promises';
+import * as _matter from 'gray-matter';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const matter = (_matter).default || _matter;
+
+function createPostMap(options = {}) {
+  return {
+    name: 'createPostMap',
+    buildEnd: async () => {
+      const {
+        input = "static/posts/",
+        output = "post-map.json"
+      } = options
+
+      const file_regex = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})-(?<name>.+)\.md/;
+
+      const posts = await fs.readdir(input)
+
+      const post_map = await Promise.all(posts.map(
+        async (f) => {
+          return fs.readFile(input + f, { encoding: "utf8" })
+            .then(file => {
+              return {file: f, ...matter(file) }
+            })
+            .then(post => {
+              const {year, month, day, name} = post.file.match(file_regex).groups
+
+              return {
+                year: year,
+                month: month,
+                day: day,
+                name: name,
+                excerpt: post.content.substr(0, post.content.indexOf("<!--more-->")) || post.content,
+                ...post.data,
+              }
+            })
+        }))
+
+        
+      await fs.writeFile(output, JSON.stringify(post_map))
+    }
+  }
+}
+
 export default {
   input: 'src/index.ts',
   output: {
@@ -55,6 +100,10 @@ export default {
           regex: /^__/,
         },
       },
+    }),
+    createPostMap({
+      input: "static/posts/",
+      output: "_build/posts/post-map.json",
     }),
     summary(),
     dev({

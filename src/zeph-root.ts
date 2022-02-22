@@ -8,7 +8,7 @@ import { mdiTwitter, mdiGithub, mdiLinkedin } from "@mdi/js";
 
 import {LitElement, html, css} from 'lit';
 import {customElement, property, query} from 'lit/decorators.js';
-import { listenMediaQuery } from "./util";
+import { listenMediaQuery, openPage } from "./util";
 
 import "./zeph-page-router";
 import { Button } from "@material/mwc-button";
@@ -34,8 +34,7 @@ export class ZephRoot extends LitElement {
 
     private _pageLink(e: MouseEvent) {
         const button = e.target as Button;
-        history.pushState(null, '', button.getAttribute("href"))
-        window.dispatchEvent(new PopStateEvent('popstate')); // Required by vaadin-router
+        openPage(button.getAttribute("href")!)
     }
 
     static override styles = [

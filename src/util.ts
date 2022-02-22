@@ -32,8 +32,22 @@ export const convertMarkdown  = (src: string) => {
    return md.render(src);
 }
 
+export const openPage = (href: string) => {
+   history.pushState(null, '', href)
+   window.dispatchEvent(new PopStateEvent('popstate')); // Required by vaadin-router
+}
+
 export interface BlogPostData {
    html: string,
    metadata: object,
    filename: string
+}
+
+export interface PostMeta {
+   year: string,
+   month: string,
+   day: string,
+   name: string,
+   excerpt: string,
+   title: string
 }
