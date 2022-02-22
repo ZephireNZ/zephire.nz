@@ -26,7 +26,37 @@ export class ZephBlogPost extends LitElement {
 
     static override styles = [
         commonStyles,
-        css``
+        css`
+            div#container {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 100%;
+            }
+
+            @media (min-width: 576px) {
+                div#container {
+                    max-width: 540px;
+                }
+            }
+
+            @media (min-width: 768px) {
+                div#container {
+                    max-width: 720px;
+                }
+            }
+
+            @media (min-width: 992px) {
+                div#container {
+                    max-width: 960px;
+                }
+            }
+
+            @media (min-width: 1200px) {
+                div#container {
+                    max-width: 1140px;
+                }
+            }
+        `
     ]
 
     override render() {
@@ -41,7 +71,11 @@ export class ZephBlogPost extends LitElement {
 
         const post_html = post_meta.then(p => convertMarkdown(p.content))
 
-        return html`${until(post_html.then(unsafeHTML), html`<span>Loading...</span>`)}`;
+        return html`
+            <div id="container">
+                ${until(post_html.then(unsafeHTML), html`<span>Loading...</span>`)}
+            </div>
+        `;
     }
 }
 

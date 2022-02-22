@@ -1,12 +1,15 @@
-import { marked } from 'marked';
 import * as _matter from 'gray-matter';
-
-marked.setOptions({
-   gfm: true,
-})
+import MarkdownIt from 'markdown-it';
+import * as markdownItAttrs from '@gerhobbelt/markdown-it-attrs';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const matter = (_matter as any).default || _matter;
+
+const md = MarkdownIt({
+   html: true,
+});
+
+md.use(markdownItAttrs.default);
 
 /**
 * Attach a media query. Listener is called right away and when it matches.
@@ -26,7 +29,7 @@ export const listenMediaQuery = (
 };
 
 export const convertMarkdown  = (src: string) => {
-   return marked.parse(src);
+   return md.render(src);
 }
 
 export interface BlogPostData {

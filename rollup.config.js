@@ -13,6 +13,8 @@ import copy from 'rollup-plugin-copy';
 import nodePolyfills from 'rollup-plugin-polyfill-node';
 import commonjs from '@rollup/plugin-commonjs';
 import dev from 'rollup-plugin-dev';
+import scss from 'rollup-plugin-scss';
+import json from '@rollup/plugin-json';
 
 export default {
   input: 'src/index.ts',
@@ -30,6 +32,10 @@ export default {
     typescript(),
     commonjs(),
     nodePolyfills(),
+    scss({
+      output: false,
+    }),
+    json(),
     copy({
       targets: [
         { src: 'static/*', dest: '_build/' },

@@ -5,6 +5,7 @@ import { Router } from "@vaadin/router";
 
 import './zeph-blog-post';
 import './zeph-homepage';
+import './zeph-404';
 
 @customElement('zeph-page-router')
 export class ZephPageRouter extends LitElement {
