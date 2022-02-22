@@ -75,7 +75,12 @@ export class ZephRoot extends LitElement {
                 --mdc-top-app-bar-width: calc(100% - var(--mdc-drawer-width, 256px));
             }
 
-            #sidebar-links a {
+            #sidebar-items a {
+                color: inherit;
+                text-decoration: inherit;
+            }
+
+            #sidebar-items a:hover, #sidebar-items mwc-button:hover {
                 color: inherit;
                 text-decoration: inherit;
             }
@@ -100,12 +105,15 @@ export class ZephRoot extends LitElement {
             </div>
             <span slot="subtitle"></span>
             <div id="sidebar-items">
-                <mwc-button
+                <a href="mailto:brynley+site@zephire.nz" target="_blank">
+                    <mwc-button
                     raised
                     label="Email me"
                     icon="email"
-                >
-                </mwc-button>
+                    style="width: 100%"
+                    >
+                    </mwc-button>
+                </a>
                 <div id="sidebar-links">
                     <a href="https://github.com/ZephireNZ" target="_blank">
                         <mwc-icon-button>
