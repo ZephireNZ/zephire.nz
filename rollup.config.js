@@ -17,11 +17,8 @@ import scss from 'rollup-plugin-scss';
 import json from '@rollup/plugin-json';
 
 import * as fs from 'fs/promises';
-import * as _matter from 'gray-matter';
+import matter from 'gray-matter';
 import fg from 'fast-glob';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const matter = (_matter).default || _matter;
 
 function createPostMap(options = {}) {
   return {

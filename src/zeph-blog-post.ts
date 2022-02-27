@@ -5,8 +5,10 @@ import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
 
 
 import { commonStyles } from './styles';
-import { convertMarkdown, matter } from './util';
+import { convertMarkdown } from './util';
 import { RouterLocation } from '@vaadin/router';
+
+import matter from 'gray-matter';
 
 
 interface PostParams {

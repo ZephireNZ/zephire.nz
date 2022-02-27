@@ -1,15 +1,11 @@
-import * as _matter from 'gray-matter';
 import MarkdownIt from 'markdown-it';
-import * as markdownItAttrs from '@gerhobbelt/markdown-it-attrs';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const matter = (_matter as any).default || _matter;
+import markdownItAttrs from 'markdown-it-attrs';
 
 const md = MarkdownIt({
    html: true,
 });
 
-md.use(markdownItAttrs.default);
+md.use(markdownItAttrs);
 
 /**
 * Attach a media query. Listener is called right away and when it matches.
