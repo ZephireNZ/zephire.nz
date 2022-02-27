@@ -7,7 +7,7 @@ import { commonStyles } from './styles';
 import { mdiTwitter, mdiGithub, mdiLinkedin } from "@mdi/js";
 
 import {LitElement, html, css} from 'lit';
-import {customElement, property, query} from 'lit/decorators.js';
+import {customElement, property, queryAsync} from 'lit/decorators.js';
 import { listenMediaQuery, openPage } from "./util";
 
 import "./zeph-page-router";
@@ -18,18 +18,19 @@ export class ZephRoot extends LitElement {
 
     @property({ type: Boolean }) public narrow!: boolean;
 
-    @query("#zeph-drawer")
-    private drawer!: Drawer;
+    @queryAsync("#zeph-drawer")
+    private drawer!: Promise<Drawer>;
 
     constructor() {
         super();
-        listenMediaQuery("(max-width: 870px)", (matches) => {
+        listenMediaQuery("(max-width: 767px)", (matches) => {
             this.narrow = matches;
+            this.drawer.then((d) => d.open = !this.narrow);
         });
     }
 
     private _expandNav() {
-        this.drawer.open = !this.drawer.open;
+        this.drawer.then((d) => d.open = !d.open);
     }
 
     private _pageLink(e: MouseEvent) {
@@ -40,6 +41,10 @@ export class ZephRoot extends LitElement {
     static override styles = [
         commonStyles,
         css`
+            :host {
+                width: 100%;
+            }
+
             #portrait {
                 max-width: 100%;
                 /* padding-left: 1em;
@@ -69,10 +74,14 @@ export class ZephRoot extends LitElement {
                 align-items: center;
                 justify-content: center;
             }
+            
+            
 
-            mwc-drawer[open] mwc-top-app-bar-fixed {
-                /* Default width of drawer is 256px. See CSS Custom Properties below */
-                --mdc-top-app-bar-width: calc(100% - var(--mdc-drawer-width, 256px));
+            @media(min-width: 768px) {
+                    mwc-drawer[open] mwc-top-app-bar-fixed {
+                    /* Default width of drawer is 256px. See CSS Custom Properties below */
+                    --mdc-top-app-bar-width: calc(100% - var(--mdc-drawer-width, 256px));
+                }
             }
 
             #sidebar-items a {
@@ -96,7 +105,7 @@ export class ZephRoot extends LitElement {
 
     override render() {
         return html`
-        <mwc-drawer hasHeader type="dismissible" id="zeph-drawer" open>
+        <mwc-drawer hasHeader type=${this.narrow ? "modal" : ""} id="zeph-drawer">
             <div slot="title">
                 <div id="portrait">
                     <img src="/assets/img/portrait-small.png" />
@@ -105,6 +114,26 @@ export class ZephRoot extends LitElement {
             </div>
             <span slot="subtitle"></span>
             <div id="sidebar-items">
+                ${this.narrow ? html`
+                <a href="/" target="_self">
+                    <mwc-button
+                        raised
+                        icon="home"
+                        slot="actionItems"
+                        label="Home"
+                        style="width: 100%">
+                    </mwc-button>
+                </a>
+                <a href="/posts" target="_self">
+                    <mwc-button
+                        raised
+                        icon="inventory"
+                        slot="actionItems"
+                        label="Post Archive"
+                        style="width: 100%">
+                    </mwc-button>
+                </a>
+                ` : ""}
                 <a href="mailto:brynley+site@zephire.nz" target="_blank">
                     <mwc-button
                     raised
@@ -141,10 +170,34 @@ export class ZephRoot extends LitElement {
 
             <div slot="appContent">
                 <mwc-top-app-bar-fixed>
-                    <mwc-icon-button icon="menu" slot="navigationIcon" @click=${this._expandNav}></mwc-icon-button>
+                    ${this.narrow 
+                        ? html`
+                            <mwc-icon-button
+                                icon="menu"
+                                slot="navigationIcon"
+                                @click=${this._expandNav}
+                            >
+                            </mwc-icon-button>
+                        ` : ""}
                     <div slot="title">Zeph's Blog</div>
-                    <mwc-button icon="home" slot="actionItems" label="Home" href="/" @click=${this._pageLink}></mwc-button>
-                    <mwc-button icon="inventory" slot="actionItems" label="Post Archive" href="/posts" @click=${this._pageLink}></mwc-button>
+                    ${this.narrow 
+                        ? html``
+                        : html`
+                            <mwc-button
+                                icon="home"
+                                slot="actionItems"
+                                label="Home"
+                                href="/"
+                                @click=${this._pageLink}>
+                            </mwc-button>
+                            <mwc-button
+                                icon="inventory"
+                                slot="actionItems"
+                                label="Post Archive"
+                                href="/posts"
+                                @click=${this._pageLink}>
+                            </mwc-button>
+                        `}
 
                     <!-- Content -->
                     <zeph-page-router>

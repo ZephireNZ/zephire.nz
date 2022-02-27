@@ -18,6 +18,7 @@ import json from '@rollup/plugin-json';
 
 import * as fs from 'fs/promises';
 import * as _matter from 'gray-matter';
+import fg from 'fast-glob';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const matter = (_matter).default || _matter;
@@ -57,6 +58,16 @@ function createPostMap(options = {}) {
 
         
       await fs.writeFile(output, JSON.stringify(post_map))
+    }
+  }
+}
+
+function watchStatic() {
+  return {
+    'name': 'watch-static',
+    async buildStart() {
+      const files = await fg('static/**/*');
+      files.forEach(this.addWatchFile);
     }
   }
 }
@@ -105,6 +116,7 @@ export default {
       input: "static/posts/",
       output: "_build/posts/post-map.json",
     }),
+    watchStatic(),
     summary(),
     dev({
       dirs: ["_build"],

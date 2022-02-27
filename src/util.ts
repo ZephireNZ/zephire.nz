@@ -22,10 +22,10 @@ export const listenMediaQuery = (
    matchesChanged: (matches: boolean) => void
 ) => {
    const mql = matchMedia(mediaQuery);
-   const listener = (e) => matchesChanged(e.matches);
-   mql.addListener(listener);
+   const listener = (e: MediaQueryListEvent) => matchesChanged(e.matches);
+   mql.addEventListener("change", listener);
    matchesChanged(mql.matches);
-   return () => mql.removeListener(listener);
+   return () => mql.removeEventListener("change", listener);
 };
 
 export const convertMarkdown  = (src: string) => {
