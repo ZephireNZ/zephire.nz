@@ -26,6 +26,7 @@ export class ZephBlogPost extends LitElement {
 
     static override styles = [
         commonStyles,
+        css``
     ]
 
     override render() {

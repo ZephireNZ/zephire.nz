@@ -78,7 +78,7 @@ export default {
   },
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {
-      console.error(`(!) ${warning.message}`);
+      console.error(`(!) ${warning?.loc?.file} ${warning.message}`);
     }
   },
   plugins: [

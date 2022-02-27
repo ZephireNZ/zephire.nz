@@ -2,7 +2,6 @@ import { html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 import { commonStyles } from "./styles";
 import { until } from 'lit-html/directives/until.js';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import { openPage, PostMeta } from './util';
 
 import "@material/mwc-list/mwc-list";
