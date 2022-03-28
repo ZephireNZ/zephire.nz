@@ -5,7 +5,7 @@ import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
 
 
 import { commonStyles } from './styles';
-import { convertMarkdown } from './util';
+import { convertMarkdown, awaitElement } from './util';
 import { RouterLocation } from '@vaadin/router';
 
 import matter from 'gray-matter';
@@ -29,6 +29,30 @@ export class ZephBlogPost extends LitElement {
         css``
     ]
 
+    constructor() {
+        super();
+    }
+
+    override connectedCallback() {
+        super.connectedCallback();
+
+        awaitElement(this.renderRoot, "post-content").then((p) => {
+            if(window.location.hash) {
+                p.querySelector(`${window.location.hash}`)?.scrollIntoView();
+            }
+
+            const links = this.renderRoot.querySelectorAll('a[href^="#"')
+
+            links.forEach((el) => {
+                const anchor = el as HTMLAnchorElement;
+                anchor.onclick = (e) => {
+                    e.preventDefault();
+                    p.querySelector(`${anchor.getAttribute("href")}`)?.scrollIntoView();
+                }
+            })
+        })
+    }
+
     override render() {
         const params: PostParams = this.location.params as unknown as PostParams;
         const postName = `${params.year}-${params.month}-${params.day}-${params.name}`
@@ -42,7 +66,9 @@ export class ZephBlogPost extends LitElement {
                 <h2>${p.data.title}</h2>
                 <p class="mdc-typography--subtitle1">${params.year}-${params.month}-${params.day}</p>
                 <hr />
-                ${unsafeHTML(convertMarkdown(p.content))}
+                <div id="post-content">
+                    ${unsafeHTML(convertMarkdown(p.content))}
+                </div>
             `
         })
 

@@ -24,6 +24,24 @@ export const listenMediaQuery = (
    return () => mql.removeEventListener("change", listener);
 };
 
+export function awaitElement(root: Node, id: string) {
+   return new Promise<Element>((resolve) => {
+      const callback = (mutationList: MutationRecord[]) => {
+         mutationList
+            .map((m) => m.addedNodes)
+            .forEach((nl) => nl.forEach((n) => {
+               const element = n as Element;
+               if (element.id == id) {
+                  resolve(element);
+               }
+            }))
+      };
+
+      const observer = new MutationObserver(callback);
+      observer.observe(root, { childList: true, subtree: true });
+   });
+}
+
 export const convertMarkdown  = (src: string) => {
    return md.render(src);
 }
