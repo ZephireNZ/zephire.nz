@@ -108,7 +108,7 @@ export class ZephRoot extends LitElement {
         <mwc-drawer hasHeader type=${this.narrow ? "modal" : ""} id="zeph-drawer">
             <div slot="title">
                 <div id="portrait">
-                    <img src="/assets/img/portrait-small.png" />
+                    <img src="/assets/img/portrait-small.png" alt="Portrait" />
                 </div>
                 <div style="text-align: center">Brynley McDonald</div>
             </div>
@@ -145,21 +145,21 @@ export class ZephRoot extends LitElement {
                 </a>
                 <div id="sidebar-links">
                     <a href="https://github.com/ZephireNZ" target="_blank">
-                        <mwc-icon-button>
+                        <mwc-icon-button aria-label="Github">
                             <svg>
                                 <path d=${mdiGithub} />
                             </svg>
                         </mwc-icon-button>
                     </a>
                     <a href="https://twitter.com/ZephireNZ" target="_blank">
-                        <mwc-icon-button>
+                        <mwc-icon-button aria-label="Twitter">
                             <svg>
                                 <path d=${mdiTwitter} />
                             </svg>
                         </mwc-icon-button>
                     </a>
                     <a href="https://www.linkedin.com/in/brynley-mcdonald-413191112/" target="_blank">
-                        <mwc-icon-button>
+                        <mwc-icon-button aria-label="LinkedIn">
                             <svg>
                                 <path d=${mdiLinkedin} />
                             </svg>
