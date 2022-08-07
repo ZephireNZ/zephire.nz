@@ -26,7 +26,12 @@ export class ZephBlogPost extends LitElement {
 
     static override styles = [
         commonStyles,
-        css``
+        css`
+        
+            a, div, p, span, h1, h2, h3, h4, h5, h6, h7, h9 {
+                scroll-margin-top: 64px;
+            }
+        `
     ]
 
     constructor() {

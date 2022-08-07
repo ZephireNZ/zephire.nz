@@ -23,7 +23,7 @@ Device Types:
 - [Plex for Apple TV](#plexappletv)
 - [Plex Media Player](#plexmediaplayer) (PMP)
 
-### <a class="anchor" name="plexweb" /> Plex Web / Plex Desktop
+### <a class="anchor" id="plexweb" /> Plex Web / Plex Desktop
 
 1. Open up Plex, and start playing a video
 2. Pause the video, and click on the settings button (highlighed in red below)
@@ -33,7 +33,7 @@ Device Types:
 4. If you don't see `Play Original Quality`, your device can't support original playback on this video, check with
    another video
 
-### <a class="anchor" name="plexmobile" /> Plex Android / iOS
+### <a class="anchor" id="plexmobile" /> Plex Android / iOS
 
 1. Open up Plex, and start playing a video
 2. Pause the video, and click on the `...` button (highlighed in red below)
@@ -44,7 +44,7 @@ Device Types:
 5. If you don't see `Play Original Quality`, your device can't support original playback on this video, check with
    another video
 
-### <a class="anchor" name="plextv" /> Plex for Smart TV
+### <a class="anchor" id="plextv" /> Plex for Smart TV
 
 1. Open up Plex, and start playing a video
 2. Pause the video, and click on the `...` button
@@ -53,11 +53,11 @@ Device Types:
 5. If you don't see `Play Original Quality`, your device can't support original playback on this video, check with
    another video
 
-### <a class="anchor" name="plexappletv" /> Plex for Apple TV
+### <a class="anchor" id="plexappletv" /> Plex for Apple TV
 
 TBC
 
-### <a class="anchor" name="plexmediaplayer" /> Plex Media Player
+### <a class="anchor" id="plexmediaplayer" /> Plex Media Player
 
 1. Open up Plex, and start playing a video
 2. Pause the video, and click on the settings (<span class="fa fa-sliders" aria-hidden="true"></span>) button
