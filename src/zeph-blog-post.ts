@@ -52,6 +52,7 @@ export class ZephBlogPost extends LitElement {
                 const anchor = el as HTMLAnchorElement;
                 anchor.onclick = (e) => {
                     e.preventDefault();
+                    history.pushState(null, "", anchor.getAttribute("href"));
                     p.querySelector(`${anchor.getAttribute("href")}`)?.scrollIntoView();
                 }
             })
