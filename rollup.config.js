@@ -11,6 +11,7 @@ import scss from 'rollup-plugin-scss';
 import json from '@rollup/plugin-json';
 
 import * as fs from 'fs/promises';
+import * as path from 'path';
 import matter from 'gray-matter';
 import fg from 'fast-glob';
 
@@ -47,7 +48,7 @@ function createPostMap(options = {}) {
             })
         }))
 
-        
+      fs.mkdir(path.dirname(output), {recursive: true})
       await fs.writeFile(output, JSON.stringify(post_map))
     }
   }
