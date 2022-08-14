@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Markdown: Syntax"
 excerpt: "Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
 

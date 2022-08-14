@@ -13,7 +13,7 @@
     "format": "prettier \"**/*.{cjs,html,js,json,md,ts}\" --ignore-path ./.eslintignore --write",
     "analyze": "cem analyze --litelement --globs \"src/**/*.ts\"",
     "analyze:watch": "cem analyze --litelement --globs \"src/**/*.ts\" --watch",
-    "serve": "rollup -c -w",
+    "serve": "BUILD_UNPUBLISHED=true rollup -c -w",
     "checksize": "rollup -c ; cat ./build/index.bundled.js | gzip -9 | wc -c ; rm ./build/index.bundled.js"
   },
   "repository": {

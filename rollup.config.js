@@ -28,7 +28,7 @@ function createPostMap(options = {}) {
 
       const posts = await fs.readdir(input)
 
-      const post_map = await Promise.all(posts.map(
+      var post_map = await Promise.all(posts.map(
         async (f) => {
           return fs.readFile(input + f, { encoding: "utf8" })
             .then(file => {
@@ -46,8 +46,13 @@ function createPostMap(options = {}) {
                 ...post.data,
               }
             })
-        }))
+        }
+      ))
 
+      if (process.env.BUILD_UNPUBLISHED !== "true") {
+        post_map = post_map.filter((post) => !("published" in post) || post.published)
+      }
+        
       fs.mkdir(path.dirname(output), {recursive: true})
       await fs.writeFile(output, JSON.stringify(post_map))
     }
