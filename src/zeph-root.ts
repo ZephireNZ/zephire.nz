@@ -45,10 +45,22 @@ export class ZephRoot extends LitElement {
                 width: 100%;
             }
 
+            #title {
+                text-align: center;
+                color: var(--zeph-primary);
+            }
+
+            #subtitle {
+                text-align: center;
+                font-style: italic;
+                color: rgba(0, 0, 0, 0.6);
+            }
+
             #portrait {
                 max-width: 100%;
-                /* padding-left: 1em;
-                padding-right: 1em; */
+                padding-left: 16px;
+                padding-right: 16px;
+                padding-bottom: 16px;
             }
             #portrait img {
                 border-radius: 50%;
@@ -106,14 +118,12 @@ export class ZephRoot extends LitElement {
     override render() {
         return html`
         <mwc-drawer hasHeader type=${this.narrow ? "modal" : ""} id="zeph-drawer">
-            <div slot="title">
-                <div id="portrait">
-                    <img src="/assets/img/portrait-small.png" alt="Portrait" />
-                </div>
-                <div style="text-align: center">Brynley McDonald</div>
+            <div id="portrait">
+                <img src="/assets/img/portrait-small.png" alt="Portrait" />
             </div>
-            <span slot="subtitle"></span>
-            <div id="sidebar-items">
+            <h3 id="title" style="text-align: center" class="mdc-typography--headline5">Brynley McDonald</h3>
+            <h6 id="subtitle" class="mdc-typography--subtitle2">Full Stack Developer</h6>
+            <div id="sidebar-items"> 
                 ${this.narrow ? html`
                 <a href="/" target="_self" >
                     <mwc-button
