@@ -115,13 +115,14 @@ export class ZephRoot extends LitElement {
             <span slot="subtitle"></span>
             <div id="sidebar-items">
                 ${this.narrow ? html`
-                <a href="/" target="_self">
+                <a href="/" target="_self" >
                     <mwc-button
                         raised
                         icon="home"
                         slot="actionItems"
                         label="Home"
-                        style="width: 100%">
+                        style="width: 100%"
+                        @click=${this._expandNav}>
                     </mwc-button>
                 </a>
                 <a href="/posts" target="_self">
@@ -130,7 +131,8 @@ export class ZephRoot extends LitElement {
                         icon="inventory"
                         slot="actionItems"
                         label="Post Archive"
-                        style="width: 100%">
+                        style="width: 100%"
+                        @click=${this._expandNav}>
                     </mwc-button>
                 </a>
                 ` : ""}
