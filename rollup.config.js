@@ -27,6 +27,7 @@ function createPostMap(options = {}) {
       const file_regex = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})-(?<name>.+)\.md/;
 
       const posts = await fs.readdir(input)
+      posts.sort().reverse() // Sort reverse chronological
 
       var post_map = await Promise.all(posts.map(
         async (f) => {
