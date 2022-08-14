@@ -122,7 +122,10 @@ export class ZephRoot extends LitElement {
                 <img src="/assets/img/portrait-small.png" alt="Portrait" />
             </div>
             <h3 id="title" style="text-align: center" class="mdc-typography--headline5">Brynley McDonald</h3>
-            <h6 id="subtitle" class="mdc-typography--subtitle2">Full Stack Developer</h6>
+            <h6 id="subtitle" class="mdc-typography--subtitle2">
+                Developer and Tech Enthusiast <br>
+                based in Auckland, New Zealand
+            </h6>
             <div id="sidebar-items"> 
                 ${this.narrow ? html`
                 <a href="/" target="_self" >
