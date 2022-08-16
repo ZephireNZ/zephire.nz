@@ -4,7 +4,7 @@ import {until} from 'lit-html/directives/until.js';
 import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
 
 
-import { commonStyles } from './styles';
+import commonStyles from "./styles/common.scss";
 import { convertMarkdown, awaitElement } from './util';
 import { RouterLocation } from '@vaadin/router';
 

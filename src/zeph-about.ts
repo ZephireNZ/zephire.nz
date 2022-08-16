@@ -2,8 +2,8 @@ import { html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 import commonStyles from "./styles/common.scss";
 
-@customElement('zeph-404')
-export class Zeph404 extends LitElement {
+@customElement('zeph-about')
+export class ZephAbout extends LitElement {
 
 
     static override styles = [
@@ -12,15 +12,15 @@ export class Zeph404 extends LitElement {
 
     override render() {
         return html`
-            <h1>404</h1>
+            <mwa-card>
 
-            <p>Hmmm, something went wrong.</p>
+            </mwa-card>
         `
     }
 }
 
 declare global {
     interface HTMLElementTagNameMap {
-        'zeph-404': Zeph404;
+        'zeph-about': ZephAbout;
     }
 }

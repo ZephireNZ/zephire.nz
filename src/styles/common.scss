@@ -5,7 +5,9 @@
   $on-secondary: #fff,
 );
 
-@use "@material/typography/mdc-typography";
+@use "@material/typography";
+
+@include typography.core-styles;
 
 $zeph-primary: #a94442;
 $zeph-primary-light: lighten($zeph-primary, 15%);

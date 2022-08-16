@@ -1,0 +1,19 @@
+@use "@material/card";
+@use "@material/theme";
+@use "@material/theme/custom-properties";
+
+@include card.core-styles;
+
+:host {
+    display: inline-flex;
+    @include theme.property(border-radius, custom-properties.create(--mdc-card-border-radius, 4px 4px 4px 4px));
+}
+
+.mdc-card {
+    border-radius: inherit;
+    flex: 1;
+    @include theme.property(width, custom-properties.create(--mdc-card-width, max-content));
+    @include theme.property(height, custom-properties.create(--mdc-card-height, max-content));
+    @include theme.property(padding, custom-properties.create(--mdc-card-padding, inherit));
+    @include theme.property(margin, custom-properties.create(--mdc-card-margin, inherit));
+}

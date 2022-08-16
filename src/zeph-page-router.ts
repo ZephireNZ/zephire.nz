@@ -7,6 +7,7 @@ import './zeph-blog-post';
 import './zeph-homepage';
 import './zeph-404';
 import './zeph-archive';
+import './zeph-about';
 
 @customElement('zeph-page-router')
 export class ZephPageRouter extends LitElement {
@@ -61,6 +62,7 @@ export class ZephPageRouter extends LitElement {
                 {path: '/', component: 'zeph-homepage'},
                 {path: '/posts/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:name', component: 'zeph-blog-post'},
                 {path: '/posts', component: 'zeph-archive'},
+                {path: '/about', component: 'zeph-about'},
                 {path: '(.*)', component: 'zeph-404'},
             ])
         })

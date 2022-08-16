@@ -7,7 +7,7 @@ import copy from 'rollup-plugin-copy';
 import nodePolyfills from 'rollup-plugin-polyfill-node';
 import commonjs from '@rollup/plugin-commonjs';
 import dev from 'rollup-plugin-dev';
-import scss from 'rollup-plugin-scss';
+import { litScss } from 'rollup-plugin-scss-lit';
 import json from '@rollup/plugin-json';
 
 import * as fs from 'fs/promises';
@@ -86,8 +86,8 @@ export default {
     typescript(),
     commonjs(),
     nodePolyfills(),
-    scss({
-      output: false,
+    litScss({
+      options: { loadPaths: ['node_modules'] }
     }),
     json(),
     copy({
