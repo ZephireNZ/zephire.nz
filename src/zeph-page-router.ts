@@ -7,7 +7,7 @@ import './zeph-blog-post';
 import './zeph-homepage';
 import './zeph-404';
 import './zeph-archive';
-import './zeph-about';
+import './about/zeph-about';
 
 @customElement('zeph-page-router')
 export class ZephPageRouter extends LitElement {

@@ -31,6 +31,7 @@
   "homepage": "https://github.com/ZephireNZ/zephire.nz#readme",
   "dependencies": {
     "@material/card": "^14.0.0",
+    "@material/layout-grid": "^14.0.0",
     "@material/mwc-button": "^0.27.0",
     "@material/mwc-drawer": "^0.27.0",
     "@material/mwc-icon": "^0.27.0",
