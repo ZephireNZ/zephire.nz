@@ -43,7 +43,7 @@ export class ZephAbout extends LitElement {
                 <h5>Robotic Process Automation</h5>
                 <ul>
                     <li>Creating automations in UiPath to improve operational efficiencies</li>
-                    <li>To date, contributed to millions of dollars in time savings and cost avoidance</li>
+                    <li>To date, contributed to over a million dollars in time savings and cost avoidance</li>
                     <li>Bringing together attended and unattended automations to create a seamless user experience</li>
                 </ul>
             </zeph-skills-card>
@@ -54,7 +54,7 @@ export class ZephAbout extends LitElement {
                 <ul>
                     <li>Create visual reports with tools like Splunk, Business Objects, Tableau and advanced Excel</li>
                     <li>Exploring data sources and creating actionable insights</li>
-                    <li>Identifying inefficiencies and translating this into cost savings or EBITDA</li>
+                    <li>Identifying inefficiencies and translating this into cost savings</li>
                 </ul>
             </zeph-skills-card>
         `
