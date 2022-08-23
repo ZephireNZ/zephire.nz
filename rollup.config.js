@@ -54,7 +54,7 @@ function createPostMap(options = {}) {
         post_map = post_map.filter((post) => !("published" in post) || post.published)
       }
         
-      fs.mkdir(path.dirname(output), {recursive: true})
+      await fs.mkdir(path.dirname(output), {recursive: true})
       await fs.writeFile(output, JSON.stringify(post_map))
     }
   }
