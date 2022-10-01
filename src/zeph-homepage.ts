@@ -1,5 +1,6 @@
 import { html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
+import "./about/zeph-about";
 
 @customElement('zeph-homepage')
 export class ZephHomepage extends LitElement {
@@ -7,7 +8,7 @@ export class ZephHomepage extends LitElement {
 
     override render() {
         return html`
-            Welcome!
+            <zeph-about></zeph-about>
         `
     }
 }
