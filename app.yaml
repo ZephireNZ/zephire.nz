@@ -1,0 +1,23 @@
+---
+runtime: python310
+default_expiration: 300s
+handlers:
+  - url: /assets
+    static_dir: _build/assets/
+    secure: always
+  - url: /posts/(.*\.md)
+    static_files: _build/posts/\1
+    upload: _build/posts/.*\.md
+    secure: always
+  - url: /posts/post-map.json
+    static_files: _build/posts/post-map.json
+    upload: _build/posts/post-map.json
+    secure: always
+  - url: /(browserconfig\.xml|favicon\.ico|site\.webmanifest)
+    static_files: _build/\1
+    upload: _build/(browserconfig\.xml|favicon\.ico|site\.webmanifest)
+    secure: always
+  - url: /.*
+    static_files: _build/index.html
+    upload: _build/index.html
+    secure: always

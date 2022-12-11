@@ -1,8 +1,7 @@
-.idea/
-*.iml
-_site/
-.asset-cache/
-.jekyll-cache/
-.sass-cache/
-**/*~
-*.pyc
+node_modules/
+/lib/
+/test/
+custom-elements.json
+# top level source
+/_build/
+.old/
