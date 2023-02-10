@@ -21,7 +21,6 @@ jobs:
         with:
           workload_identity_provider: projects/696313710540/locations/global/workloadIdentityPools/github-actions/providers/github-provider
           service_account: github-actions@decent-space-136523.iam.gserviceaccount.com
-      - run: ""
       - name: "Deploy"
         uses: google-github-actions/deploy-appengine@v1
         with:
