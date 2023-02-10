@@ -26,4 +26,4 @@ jobs:
         with:
           project_id: decent-space-136523
           version: "${{ github.sha }}"
-          promote: false
+          promote: true
