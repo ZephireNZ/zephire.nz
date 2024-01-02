@@ -62,7 +62,7 @@ So now I need to find an adaptor to "stretch" out the chip to fit. Well, it seem
 
 So I ended up finding a [Mini PCIe to M.2 adaptor](mpcie-m2-adaptor) that would do the trick - meaning I'll end up using the "4G" SIM slot anyway! I just needed to snap off the 52mm M.2 sticking out from the top.
 
-Finally, if I wanted to get signal I'll need a pair of antennas - so I also picked up (a U.FL to RP-SMA cable)[rpsma-ufl] that can screw into holes in the back of the case. Luckily I have got a couple spare RP-SMA antennas from an old Wifi card, so no need to buy those.
+Finally, if I wanted to get signal I'll need a pair of antennas - so I also picked up [a U.FL to RP-SMA cable](rpsma-ufl) that can screw into holes in the back of the case. Luckily I have got a couple spare RP-SMA antennas from an old Wifi card, so no need to buy those.
 
 [lte-bands-wiki]: https://en.wikipedia.org/wiki/List_of_LTE_networks
 [EM7430]: https://www.aliexpress.com/item/32955935199.html
