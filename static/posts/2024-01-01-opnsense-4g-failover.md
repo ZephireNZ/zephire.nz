@@ -56,7 +56,7 @@ I will be using 2degrees, which are the below, but wikipedia also keeps [a list]
 
 I eventually whittled down my options based on the required bands, availability on AliExpress, and price and landed on [the EM7430 chip](EM7430) from Sierra Wireless.
 
-But of course things are never that easy. EM7430 is an M.2 chip, so it'll be wired up the the "5G" SIM as mentioned above. M.2 comes in a variety of sizes and it just so happens that the EM740 has a length of 42mm but my board only supports M.2 chips with a length of 52mm.
+But of course things are never that easy. EM7430 is an M.2 chip, so it'll be wired up the the "5G" SIM as mentioned above. M.2 comes in a variety of sizes and it just so happens that the EM740 has a length of 42mm but my board only supports M.2 chips with a length of 52mm. Sierra wireless do also sell "MC" variants of their chips that use Mini PCIe, however I couldn't find any on AliExpress that had the right bands and looked trustworthy enough to order.
 
 So now I need to find an adaptor to "stretch" out the chip to fit. Well, it seems most people going this route don't have a SIM slot hardwired to their board because the vast majority of chips (at least on AliExpress) come with a built-in SIM slot. I could only find one or two which didn't, and these instead had an extension that would knock into the M.2 storage on my board instead.
 
