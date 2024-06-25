@@ -3,12 +3,6 @@ import { customElement, queryAsync } from "lit/decorators.js";
 
 import { Router } from "@vaadin/router";
 
-import './zeph-blog-post';
-import './zeph-homepage';
-import './zeph-404';
-import './zeph-archive';
-import './about/zeph-about';
-
 @customElement('zeph-page-router')
 export class ZephPageRouter extends LitElement {
 
@@ -59,11 +53,31 @@ export class ZephPageRouter extends LitElement {
             const router = new Router(c);
 
             router.setRoutes([
-                {path: '/', component: 'zeph-homepage'},
-                {path: '/posts/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:name', component: 'zeph-blog-post'},
-                {path: '/posts', component: 'zeph-archive'},
-                {path: '/about', component: 'zeph-about'},
-                {path: '(.*)', component: 'zeph-404'},
+                {
+                    path: '/',
+                    action: async () => { import('./zeph-homepage') },
+                    component: 'zeph-homepage'
+                },
+                {
+                    path: '/posts/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:name',
+                    action: async () => { import('./zeph-blog-post') },
+                    component: 'zeph-blog-post'
+                },
+                {
+                    path: '/posts',
+                    action: async () => { import('./zeph-archive') },
+                    component: 'zeph-archive'
+                },
+                {
+                    path: '/about',
+                    action: async () => { import('./about/zeph-about') },
+                    component: 'zeph-about'
+                },
+                {
+                    path: '(.*)',
+                    action: async () => { import('./zeph-404') },
+                    component: 'zeph-404'
+                },
             ])
         })
     }

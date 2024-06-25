@@ -1,6 +1,6 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import commonStyles from "./styles/common.scss";
+import { commonStyles } from "./styles";
 
 @customElement('mdi-icon')
 export class MdiIcon extends LitElement {

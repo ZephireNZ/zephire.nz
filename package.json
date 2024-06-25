@@ -7,17 +7,14 @@
     "node": ">= 20"
   },
   "scripts": {
-    "build": "npm-run-all clean -p build:*",
-    "build:rollup": "rollup -c",
-    "clean": "rimraf _build",
+    "build": "vite build",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
     "format": "prettier \"**/*.{cjs,html,js,json,md,ts}\" --ignore-path ./.eslintignore --write",
     "analyze": "cem analyze --litelement --globs \"src/**/*.ts\"",
     "analyze:watch": "cem analyze --litelement --globs \"src/**/*.ts\" --watch",
-    "serve": "BUILD_UNPUBLISHED=true rollup -c -w",
-    "checksize": "rollup -c ; cat ./build/index.bundled.js | gzip -9 | wc -c ; rm ./build/index.bundled.js"
+    "dev": "BUILD_UNPUBLISHED='true' vite"
   },
   "repository": {
     "type": "git",
@@ -44,17 +41,12 @@
     "@vaadin/router": "^1.7.4",
     "fast-glob": "^3.2.11",
     "gray-matter": "^4.0.3",
-    "lit": "^2.3.0",
-    "lit-html": "^2.3.0",
+    "lit": "^2.8.0",
     "markdown-it": "^13.0.1",
     "markdown-it-attrs": "^4.1.4"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^22.0.2",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-replace": "^4.0.0",
-    "@rollup/plugin-typescript": "^8.3.4",
+    "@tsconfig/node20": "^20.1.4",
     "@types/markdown-it": "^12.2.3",
     "@types/markdown-it-attrs": "^4.1.0",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
@@ -62,16 +54,11 @@
     "eslint": "^8.22.0",
     "lit-analyzer": "^2.0.3",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.7.1",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.78.0",
-    "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-dev": "^2.0.4",
-    "rollup-plugin-polyfill-node": "^0.10.2",
-    "rollup-plugin-scss-lit": "^1.1.2",
-    "rollup-plugin-summary": "^1.4.3",
-    "rollup-plugin-terser": "^7.0.2",
+    "prettier": "^2.8.8",
     "sass": "^1.54.4",
-    "typescript": "^4.7.4"
+    "ts-lit-plugin": "^2.0.2",
+    "typescript": "^5.3.3",
+    "vite": "^4.5.3",
+    "vite-plugin-node-polyfills": "^0.22.0"
   }
 }

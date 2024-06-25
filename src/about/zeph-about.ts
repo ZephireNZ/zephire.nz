@@ -1,6 +1,6 @@
 import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
-import commonStyles from "../styles/common.scss";
+import { commonStyles } from "../styles";
 import "@material/mwc-icon";
 import { mdiCodeBraces, mdiPoll, mdiRobot } from '@mdi/js';
 
