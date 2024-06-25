@@ -1,7 +1,8 @@
 import { resolve } from 'path'
 import { Plugin, defineConfig } from 'vite'
-import * as fs from 'fs/promises';
-import matter from 'gray-matter';
+import * as fs from 'fs/promises'
+import matter from 'gray-matter'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 type DateMatch = {
   year: string,
@@ -72,11 +73,12 @@ function createPostMapPlugin(): Plugin {
 export default defineConfig({
   publicDir: "static",
   plugins: [
-    createPostMapPlugin()
+    createPostMapPlugin(),
+    nodePolyfills()
   ],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src/'),
     },
-  },
+  }
 })
