@@ -9,20 +9,19 @@ jobs:
       contents: 'read'
       id-token: 'write'
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "16.x"
+          node-version-file: .nvmrc
       - run: npm ci
-      - run: npm run build --if-present
+      - run: npm run build
       - name: Google Cloud Auth
-        uses: google-github-actions/auth@v1
+        uses: google-github-actions/auth@v2
         with:
           workload_identity_provider: projects/696313710540/locations/global/workloadIdentityPools/github-actions/providers/github-provider
           service_account: github-actions@decent-space-136523.iam.gserviceaccount.com
       - name: "Deploy"
-        uses: google-github-actions/deploy-appengine@v1
+        uses: google-github-actions/deploy-appengine@v2
         with:
           project_id: decent-space-136523
           version: "${{ github.sha }}"
