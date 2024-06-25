@@ -27,4 +27,3 @@ jobs:
           version: "${{ github.sha }}"
           promote: true
           working_directory: dist/
-          deliverables: ../app.yaml
