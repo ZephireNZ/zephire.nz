@@ -41,8 +41,7 @@
     "@vaadin/router": "^1.7.4",
     "fast-glob": "^3.2.11",
     "gray-matter": "^4.0.3",
-    "lit": "^2.3.0",
-    "lit-html": "^2.3.0",
+    "lit": "^2.8.0",
     "markdown-it": "^13.0.1",
     "markdown-it-attrs": "^4.1.4"
   },
