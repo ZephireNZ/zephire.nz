@@ -26,3 +26,5 @@ jobs:
           project_id: decent-space-136523
           version: "${{ github.sha }}"
           promote: true
+          working_directory: dist/
+          deliverables: ../app.yaml

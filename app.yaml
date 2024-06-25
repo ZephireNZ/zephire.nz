@@ -3,21 +3,21 @@ runtime: python310
 default_expiration: 300s
 handlers:
   - url: /assets
-    static_dir: dist/assets/
+    static_dir: assets/
     secure: always
   - url: /posts/(.*\.md)
-    static_files: dist/posts/\1
-    upload: dist/posts/.*\.md
+    static_files: posts/\1
+    upload: posts/.*\.md
     secure: always
   - url: /posts/post-map.json
-    static_files: dist/posts/post-map.json
-    upload: dist/posts/post-map.json
+    static_files: posts/post-map.json
+    upload: posts/post-map.json
     secure: always
   - url: /(browserconfig\.xml|favicon\.ico|site\.webmanifest)
-    static_files: dist/\1
-    upload: dist/(browserconfig\.xml|favicon\.ico|site\.webmanifest)
+    static_files: \1
+    upload: (browserconfig\.xml|favicon\.ico|site\.webmanifest)
     secure: always
   - url: /.*
-    static_files: dist/index.html
-    upload: dist/index.html
+    static_files: index.html
+    upload: index.html
     secure: always
