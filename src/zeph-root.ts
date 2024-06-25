@@ -3,7 +3,7 @@ import "@material/mwc-drawer";
 import "@material/mwc-top-app-bar-fixed";
 import "@material/mwc-icon-button";
 import "@material/mwc-button";
-import commonStyles from "./styles/common.scss";
+import { commonStyles } from "./styles";
 import { mdiTwitter, mdiGithub, mdiLinkedin } from "@mdi/js";
 
 import {LitElement, html, css} from 'lit';

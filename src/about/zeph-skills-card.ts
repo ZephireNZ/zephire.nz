@@ -1,8 +1,6 @@
 import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
-import commonStyles from "../styles/common.scss";
-
-import cardStyles from "../styles/mdc-card.scss";
+import { commonStyles, mdcCard } from "../styles";
 
 @customElement('zeph-skills-card')
 export class ZephSkillsCard extends LitElement {
@@ -10,7 +8,7 @@ export class ZephSkillsCard extends LitElement {
 
     static override styles = [
         commonStyles,
-        cardStyles,
+        mdcCard,
         css`
             :host {
                 --mdc-card-margin: 16px 0px;
