@@ -14,7 +14,7 @@
     "format": "prettier \"**/*.{cjs,html,js,json,md,ts}\" --ignore-path ./.eslintignore --write",
     "analyze": "cem analyze --litelement --globs \"src/**/*.ts\"",
     "analyze:watch": "cem analyze --litelement --globs \"src/**/*.ts\" --watch",
-    "dev": "vite"
+    "dev": "BUILD_UNPUBLISHED='true' vite"
   },
   "repository": {
     "type": "git",
@@ -41,7 +41,7 @@
     "@vaadin/router": "^1.7.4",
     "fast-glob": "^3.2.11",
     "gray-matter": "^4.0.3",
-    "lit": "^3.1.4",
+    "lit": "^2.8.0",
     "markdown-it": "^13.0.1",
     "markdown-it-attrs": "^4.1.4"
   },
