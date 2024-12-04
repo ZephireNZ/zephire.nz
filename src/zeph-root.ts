@@ -4,14 +4,14 @@ import "@material/mwc-top-app-bar-fixed";
 import "@material/mwc-icon-button";
 import "@material/mwc-button";
 import { commonStyles } from "./styles";
-import { mdiTwitter, mdiGithub, mdiLinkedin } from "@mdi/js";
-
+import { mdiGithub, mdiLinkedin } from "@mdi/js";
+import BlueskySvg from "@/assets/icon/bluesky.svg?raw";
 import {LitElement, html, css} from 'lit';
 import {customElement, property, queryAsync} from 'lit/decorators.js';
 import { listenMediaQuery, openPage } from "./util";
-
 import "./zeph-page-router";
 import { Button } from "@material/mwc-button";
+import { unsafeSVG } from "lit/directives/unsafe-svg.js";
 
 @customElement('zeph-root')
 export class ZephRoot extends LitElement {
@@ -166,11 +166,9 @@ export class ZephRoot extends LitElement {
                             </svg>
                         </mwc-icon-button>
                     </a>
-                    <a href="https://twitter.com/ZephireNZ" target="_blank">
-                        <mwc-icon-button aria-label="Twitter">
-                            <svg>
-                                <path d=${mdiTwitter} />
-                            </svg>
+                    <a href="https://bsky.app/profile/zephire.nz" target="_blank">
+                        <mwc-icon-button aria-label="BlueSky">
+                            ${unsafeSVG(BlueskySvg)}
                         </mwc-icon-button>
                     </a>
                     <a href="https://www.linkedin.com/in/brynley-mcdonald-413191112/" target="_blank">
