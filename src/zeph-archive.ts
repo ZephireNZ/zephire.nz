@@ -1,4 +1,4 @@
-import { html, LitElement } from "lit";
+import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 import { commonStyles } from "./styles";
 import { until } from 'lit-html/directives/until.js';
@@ -13,7 +13,15 @@ import "@material/web/divider/divider.js";
 export class ZephArchive extends LitElement {
 
     static override styles = [
-        commonStyles
+        commonStyles,
+        css`
+            md-list-item [slot="headline"],
+            md-list-item [slot="supporting-text"] {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        `
     ]
 
     private _openPost(e: Event) {

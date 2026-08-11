@@ -43,6 +43,7 @@ export class ZephRoot extends LitElement {
         css`
             :host {
                 width: 100%;
+                --zeph-top-bar-height: 64px;
             }
 
             .zeph-layout {
@@ -80,9 +81,15 @@ export class ZephRoot extends LitElement {
                 background: #fff;
                 display: flex;
                 flex-direction: column;
+                padding-top: var(--zeph-top-bar-height);
             }
 
-            .zeph-drawer > * {
+            #sidebar-items {
+                display: flex;
+                flex-direction: column;
+            }
+
+            #sidebar-items > * {
                 padding-left: 1em;
                 padding-right: 1em;
                 padding-bottom: 1em;
@@ -119,7 +126,7 @@ export class ZephRoot extends LitElement {
                 display: flex;
                 align-items: center;
                 gap: 8px;
-                height: 64px;
+                height: var(--zeph-top-bar-height);
                 padding: 0 16px;
                 box-sizing: border-box;
                 background: var(--zeph-primary);

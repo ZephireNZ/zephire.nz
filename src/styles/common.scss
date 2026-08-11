@@ -55,6 +55,9 @@ $zeph-secondary-dark: color.adjust($zeph-secondary, $lightness: -15%);
   --md-sys-color-on-primary: var(--zeph-on-primary);
   --md-sys-color-secondary: var(--zeph-secondary);
   --md-sys-color-on-secondary: var(--zeph-on-secondary);
+  --md-sys-color-surface: #fff;
+  --md-sys-color-on-surface: #1d1d1d;
+  --md-sys-color-on-surface-variant: #444;
   --md-icon-font: 'Material Icons';
 }
 
