@@ -54,8 +54,7 @@ export class ZephAbout extends LitElement {
 
                 <h5>Full-Stack Development</h5>
                 <ul>
-                    <li>Highly skilled in building Vue applications</li>
-                    <li>Client-side rendering and modern, component-driven architecture</li>
+                    <li>Highly skilled in building Vue applications, with client-side rendering and modern, component-driven architecture</li>
                     <li>Strong background in ASP.NET microservices, including asynchronous applications, database design, and ORM (Entity Framework)</li>
                     <li>Proficient in multiple languages including C#, Python, Go, Java, and TypeScript/JavaScript</li>
                 </ul>
