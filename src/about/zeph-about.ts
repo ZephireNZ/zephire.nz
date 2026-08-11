@@ -45,7 +45,7 @@ export class ZephAbout extends LitElement {
                 <h5>Kubernetes</h5>
                 <ul>
                     <li>CKAD certified</li>
-                    <li>Highly skilled at building scalable applications in k8s using k8s-native functionality</li>
+                    <li>Experienced at building scalable applications in k8s using k8s-native functionality</li>
                     <li>Built out a production cluster running over 100 API microservices as well as stateful background workers</li>
                 </ul>
             </zeph-skills-card>
@@ -56,7 +56,7 @@ export class ZephAbout extends LitElement {
                 <ul>
                     <li>Highly skilled in building Vue applications using TypeScript</li>
                     <li>Client-side rendering and modern, component-driven architecture</li>
-                    <li>Highly skilled in ASP.NET microservices, including asynchronous applications, database design, and ORM (Entity Framework)</li>
+                    <li>Strong background in ASP.NET microservices, including asynchronous applications, database design, and ORM (Entity Framework)</li>
                     <li>Experienced in multiple languages including Python, Java, and Go</li>
                 </ul>
             </zeph-skills-card>
