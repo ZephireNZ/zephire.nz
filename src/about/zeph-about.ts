@@ -2,7 +2,7 @@ import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 import { commonStyles } from "../styles";
 import "@material/mwc-icon";
-import { mdiCodeBraces, mdiPoll, mdiRobot } from '@mdi/js';
+import { mdiDotNet, mdiPoll, mdiSitemap, mdiVuejs } from '@mdi/js';
 
 import "./zeph-skills-card";
 import "../mdi-icon";
@@ -29,22 +29,34 @@ export class ZephAbout extends LitElement {
     override render() {
         return html`
             <zeph-skills-card>
-                <mdi-icon slot="image" .path=${mdiCodeBraces}></mdi-icon>
+                <mdi-icon slot="image" .path=${mdiSitemap}></mdi-icon>
 
-                <h5>Development</h5>
+                <h5>Technical Leadership</h5>
                 <ul>
-                    <li>Experienced in multiple languages including JavaScript, Python, Java, and C#</li>
-                    <li>Full Stack including asynchronous applications and client-side rendering</li>
+                    <li>Agile Architect, a role equivalent to a Senior/Staff Engineer</li>
+                    <li>Technically planning and architecting solutions ahead of implementation</li>
+                    <li>Working closely with development teams and Product Owners to deliver on that plan</li>
                 </ul>
             </zeph-skills-card>
             <zeph-skills-card>
-                <mdi-icon slot="image" .path=${mdiRobot}></mdi-icon>
+                <mdi-icon slot="image" .path=${mdiVuejs}></mdi-icon>
 
-                <h5>Robotic Process Automation</h5>
+                <h5>Frontend Development</h5>
                 <ul>
-                    <li>Creating automations in UiPath to improve operational efficiencies</li>
-                    <li>To date, contributed to over a million dollars in time savings and cost avoidance</li>
-                    <li>Bringing together attended and unattended automations to create a seamless user experience</li>
+                    <li>Highly skilled in building Vue applications using TypeScript</li>
+                    <li>Client-side rendering and modern, component-driven architecture</li>
+                    <li>Experienced across the broader frontend ecosystem including JavaScript</li>
+                </ul>
+            </zeph-skills-card>
+            <zeph-skills-card>
+                <mdi-icon slot="image" .path=${mdiDotNet}></mdi-icon>
+
+                <h5>Backend Development</h5>
+                <ul>
+                    <li>Highly skilled in ASP.NET microservices</li>
+                    <li>Database design and ORM, including Entity Framework</li>
+                    <li>Full stack including asynchronous applications</li>
+                    <li>Experienced in multiple languages including Python, Java, and C#</li>
                 </ul>
             </zeph-skills-card>
             <zeph-skills-card>
