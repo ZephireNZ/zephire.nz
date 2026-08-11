@@ -65,7 +65,7 @@ export class ZephAbout extends LitElement {
                     <li>Highly skilled in ASP.NET microservices</li>
                     <li>Database design and ORM, including Entity Framework</li>
                     <li>Full stack including asynchronous applications</li>
-                    <li>Experienced in multiple languages including Python, Java, and C#</li>
+                    <li>Experienced in multiple languages including Python, Java, and Go</li>
                 </ul>
             </zeph-skills-card>
             <zeph-skills-card>
