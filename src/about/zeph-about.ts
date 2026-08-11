@@ -2,7 +2,7 @@ import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 import { commonStyles } from "../styles";
 import "@material/mwc-icon";
-import { mdiMonitor, mdiPoll, mdiServer, mdiSitemap } from '@mdi/js';
+import { mdiKubernetes, mdiMonitor, mdiPoll, mdiServer, mdiSitemap } from '@mdi/js';
 
 import "./zeph-skills-card";
 import "../mdi-icon";
@@ -39,13 +39,22 @@ export class ZephAbout extends LitElement {
                 </ul>
             </zeph-skills-card>
             <zeph-skills-card>
+                <mdi-icon slot="image" .path=${mdiKubernetes}></mdi-icon>
+
+                <h5>Kubernetes</h5>
+                <ul>
+                    <li>CKAD certified</li>
+                    <li>Highly skilled at building scalable applications in k8s using k8s-native functionality</li>
+                    <li>Built out a production cluster running over 100 API microservices as well as stateful background workers</li>
+                </ul>
+            </zeph-skills-card>
+            <zeph-skills-card>
                 <mdi-icon slot="image" .path=${mdiMonitor}></mdi-icon>
 
                 <h5>Frontend Development</h5>
                 <ul>
                     <li>Highly skilled in building Vue applications using TypeScript</li>
                     <li>Client-side rendering and modern, component-driven architecture</li>
-                    <li>Experienced across the broader frontend ecosystem including JavaScript</li>
                 </ul>
             </zeph-skills-card>
             <zeph-skills-card>
