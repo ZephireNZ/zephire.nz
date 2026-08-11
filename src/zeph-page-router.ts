@@ -7,7 +7,7 @@ import { Router } from "@vaadin/router";
 export class ZephPageRouter extends LitElement {
 
     @queryAsync("div#content")
-    private content!: Promise<Node>;
+    private content!: Promise<HTMLDivElement>;
 
     static override styles = [
         css`

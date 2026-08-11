@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "@material/theme" with (
   $primary: #a94442,
   $secondary: #795548,
@@ -10,11 +11,11 @@
 @include typography.core-styles;
 
 $zeph-primary: #a94442;
-$zeph-primary-light: lighten($zeph-primary, 15%);
-$zeph-primary-dark: darken($zeph-primary, 15%);
+$zeph-primary-light: color.adjust($zeph-primary, $lightness: 15%);
+$zeph-primary-dark: color.adjust($zeph-primary, $lightness: -15%);
 $zeph-secondary: #795548;
-$zeph-secondary-light: lighten($zeph-secondary, 15%);
-$zeph-secondary-dark: darken($zeph-secondary, 15%);
+$zeph-secondary-light: color.adjust($zeph-secondary, $lightness: 15%);
+$zeph-secondary-dark: color.adjust($zeph-secondary, $lightness: -15%);
 
 
 :host {

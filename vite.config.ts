@@ -78,7 +78,16 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src/'),
+      '@': resolve(import.meta.dirname, 'src/'),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Silence deprecation warnings from @material/* stylesheets we don't
+        // control; our own scss still reports warnings normally.
+        quietDeps: true,
+      },
     },
   }
 })
