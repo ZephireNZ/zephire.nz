@@ -2,7 +2,7 @@ import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 import { commonStyles } from "../styles";
 import "@material/mwc-icon";
-import { mdiDotNet, mdiPoll, mdiSitemap, mdiVuejs } from '@mdi/js';
+import { mdiMonitor, mdiPoll, mdiServer, mdiSitemap } from '@mdi/js';
 
 import "./zeph-skills-card";
 import "../mdi-icon";
@@ -33,13 +33,13 @@ export class ZephAbout extends LitElement {
 
                 <h5>Technical Leadership</h5>
                 <ul>
-                    <li>Agile Architect, a role equivalent to a Senior/Staff Engineer</li>
+                    <li>Currently working as an Agile Architect, a role that sits at the Senior/Staff Engineer level</li>
                     <li>Technically planning and architecting solutions ahead of implementation</li>
-                    <li>Working closely with development teams and Product Owners to deliver on that plan</li>
+                    <li>Working closely with development teams and product owners to bring that plan to life</li>
                 </ul>
             </zeph-skills-card>
             <zeph-skills-card>
-                <mdi-icon slot="image" .path=${mdiVuejs}></mdi-icon>
+                <mdi-icon slot="image" .path=${mdiMonitor}></mdi-icon>
 
                 <h5>Frontend Development</h5>
                 <ul>
@@ -49,7 +49,7 @@ export class ZephAbout extends LitElement {
                 </ul>
             </zeph-skills-card>
             <zeph-skills-card>
-                <mdi-icon slot="image" .path=${mdiDotNet}></mdi-icon>
+                <mdi-icon slot="image" .path=${mdiServer}></mdi-icon>
 
                 <h5>Backend Development</h5>
                 <ul>
