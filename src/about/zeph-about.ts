@@ -64,7 +64,7 @@ export class ZephAbout extends LitElement {
                 
                 <h5>Data Analytics</h5>
                 <ul>
-                    <li>Create visual reports with tools like Splunk, Business Objects, Tableau and advanced Excel</li>
+                    <li>Create visual reports with tools like Elasticsearch, Grafana, Splunk, Tableau and advanced Excel</li>
                     <li>Exploring data sources and creating actionable insights</li>
                     <li>Identifying inefficiencies and translating this into cost savings</li>
                 </ul>
