@@ -2,7 +2,7 @@ import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 import { commonStyles } from "../styles";
 import "@material/mwc-icon";
-import { mdiKubernetes, mdiMonitor, mdiPoll, mdiServer, mdiSitemap } from '@mdi/js';
+import { mdiCodeBraces, mdiKubernetes, mdiPoll, mdiSitemap } from '@mdi/js';
 
 import "./zeph-skills-card";
 import "../mdi-icon";
@@ -34,8 +34,8 @@ export class ZephAbout extends LitElement {
                 <h5>Technical Leadership</h5>
                 <ul>
                     <li>Currently working as an Agile Architect, a role that sits at the Senior/Staff Engineer level</li>
-                    <li>Technically planning and architecting solutions ahead of implementation</li>
                     <li>Mentoring developers to help grow their skills</li>
+                    <li>Technically planning and architecting solutions ahead of implementation</li>
                     <li>Working closely with development teams, product owners, and business stakeholders to bring that plan to life</li>
                 </ul>
             </zeph-skills-card>
@@ -50,22 +50,13 @@ export class ZephAbout extends LitElement {
                 </ul>
             </zeph-skills-card>
             <zeph-skills-card>
-                <mdi-icon slot="image" .path=${mdiMonitor}></mdi-icon>
+                <mdi-icon slot="image" .path=${mdiCodeBraces}></mdi-icon>
 
-                <h5>Frontend Development</h5>
+                <h5>Full-Stack Development</h5>
                 <ul>
                     <li>Highly skilled in building Vue applications using TypeScript</li>
                     <li>Client-side rendering and modern, component-driven architecture</li>
-                </ul>
-            </zeph-skills-card>
-            <zeph-skills-card>
-                <mdi-icon slot="image" .path=${mdiServer}></mdi-icon>
-
-                <h5>Backend Development</h5>
-                <ul>
-                    <li>Highly skilled in ASP.NET microservices</li>
-                    <li>Database design and ORM, including Entity Framework</li>
-                    <li>Full stack including asynchronous applications</li>
+                    <li>Highly skilled in ASP.NET microservices, including asynchronous applications, database design, and ORM (Entity Framework)</li>
                     <li>Experienced in multiple languages including Python, Java, and Go</li>
                 </ul>
             </zeph-skills-card>
