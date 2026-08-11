@@ -1,41 +1,41 @@
-import { Drawer } from "@material/mwc-drawer";
-import "@material/mwc-drawer";
-import "@material/mwc-top-app-bar-fixed";
-import "@material/mwc-icon-button";
-import "@material/mwc-button";
 import { commonStyles } from "./styles";
 import { mdiGithub, mdiLinkedin } from "@mdi/js";
 import BlueskySvg from "@/assets/icon/bluesky.svg?raw";
 import {LitElement, html, css} from 'lit';
-import {customElement, property, queryAsync} from 'lit/decorators.js';
+import {customElement, property, state} from 'lit/decorators.js';
+import {classMap} from 'lit/directives/class-map.js';
 import { listenMediaQuery, openPage } from "./util";
 import "./zeph-page-router";
-import { Button } from "@material/mwc-button";
 import { unsafeSVG } from "lit/directives/unsafe-svg.js";
+
+import "@material/web/button/filled-button.js";
+import "@material/web/button/text-button.js";
+import "@material/web/icon/icon.js";
+import "@material/web/iconbutton/icon-button.js";
 
 @customElement('zeph-root')
 export class ZephRoot extends LitElement {
 
     @property({ type: Boolean }) public narrow!: boolean;
 
-    @queryAsync("#zeph-drawer")
-    private drawer!: Promise<Drawer>;
+    @state()
+    private drawerOpen = true;
 
     constructor() {
         super();
         listenMediaQuery("(max-width: 767px)", (matches) => {
             this.narrow = matches;
-            this.drawer.then((d) => d.open = !this.narrow);
+            this.drawerOpen = !this.narrow;
         });
     }
 
     private _expandNav() {
-        this.drawer.then((d) => d.open = !d.open);
+        this.drawerOpen = !this.drawerOpen;
     }
 
     private _pageLink(e: MouseEvent) {
-        const button = e.target as Button;
-        openPage(button.getAttribute("href")!)
+        const button = e.currentTarget as HTMLElement;
+        openPage(button.dataset.href!)
     }
 
     static override styles = [
@@ -43,6 +43,12 @@ export class ZephRoot extends LitElement {
         css`
             :host {
                 width: 100%;
+                --zeph-top-bar-height: 64px;
+            }
+
+            .zeph-layout {
+                display: flex;
+                min-height: 100vh;
             }
 
             #title {
@@ -65,16 +71,25 @@ export class ZephRoot extends LitElement {
             #portrait img {
                 border-radius: 50%;
                 width: 100%;
-                
+
             }
 
-            div[slot="title"], #sidebar-items {
+            .zeph-drawer {
+                width: 256px;
+                flex-shrink: 0;
+                box-sizing: border-box;
+                background: #fff;
                 display: flex;
                 flex-direction: column;
-
+                padding-top: var(--zeph-top-bar-height);
             }
 
-            div[slot="title"] > *, #sidebar-items > * {
+            #sidebar-items {
+                display: flex;
+                flex-direction: column;
+            }
+
+            #sidebar-items > * {
                 padding-left: 1em;
                 padding-right: 1em;
                 padding-bottom: 1em;
@@ -86,139 +101,193 @@ export class ZephRoot extends LitElement {
                 align-items: center;
                 justify-content: center;
             }
-            
-            
-
-            @media(min-width: 768px) {
-                    mwc-drawer[open] mwc-top-app-bar-fixed {
-                    /* Default width of drawer is 256px. See CSS Custom Properties below */
-                    --mdc-top-app-bar-width: calc(100% - var(--mdc-drawer-width, 256px));
-                }
-            }
 
             #sidebar-items a {
                 color: inherit;
                 text-decoration: inherit;
             }
 
-            #sidebar-items a:hover, #sidebar-items mwc-button:hover {
+            #sidebar-items a:hover, #sidebar-items md-filled-button:hover {
                 color: inherit;
                 text-decoration: inherit;
             }
 
-            mwc-top-app-bar-fixed mwc-button {
-                --mdc-theme-primary: --mdc-theme-on-primary;
+            .zeph-app-content {
+                flex: 1;
+                min-width: 0;
+                display: flex;
+                flex-direction: column;
             }
 
+            .zeph-top-app-bar {
+                position: sticky;
+                top: 0;
+                z-index: 5;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                height: var(--zeph-top-bar-height);
+                padding: 0 16px;
+                box-sizing: border-box;
+                background: var(--zeph-primary);
+                color: var(--zeph-on-primary);
+            }
 
+            .zeph-top-app-bar #app-title {
+                flex: 1;
+                font-size: 1.25rem;
+            }
+
+            .zeph-top-app-bar md-text-button {
+                --md-text-button-label-text-color: var(--zeph-on-primary);
+                --md-text-button-icon-color: var(--zeph-on-primary);
+                --md-text-button-hover-label-text-color: var(--zeph-on-primary);
+                --md-text-button-hover-icon-color: var(--zeph-on-primary);
+                --md-text-button-focus-label-text-color: var(--zeph-on-primary);
+                --md-text-button-focus-icon-color: var(--zeph-on-primary);
+                --md-text-button-pressed-label-text-color: var(--zeph-on-primary);
+                --md-text-button-pressed-icon-color: var(--zeph-on-primary);
+                --md-text-button-hover-state-layer-color: var(--zeph-on-primary);
+                --md-text-button-pressed-state-layer-color: var(--zeph-on-primary);
+            }
+
+            .zeph-top-app-bar md-icon-button {
+                --md-icon-button-icon-color: var(--zeph-on-primary);
+                --md-icon-button-hover-icon-color: var(--zeph-on-primary);
+                --md-icon-button-focus-icon-color: var(--zeph-on-primary);
+                --md-icon-button-pressed-icon-color: var(--zeph-on-primary);
+                --md-icon-button-hover-state-layer-color: var(--zeph-on-primary);
+                --md-icon-button-pressed-state-layer-color: var(--zeph-on-primary);
+            }
+
+            .zeph-content {
+                flex: 1;
+            }
+
+            .scrim {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.32);
+                z-index: 9;
+            }
+
+            @media(max-width: 767px) {
+                .zeph-drawer {
+                    position: fixed;
+                    inset: 0 auto 0 0;
+                    z-index: 10;
+                    transform: translateX(-100%);
+                    transition: transform 0.2s ease-in-out;
+                    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+                }
+
+                .zeph-drawer.open {
+                    transform: translateX(0);
+                }
+            }
         `
     ];
 
 
     override render() {
         return html`
-        <mwc-drawer hasHeader type=${this.narrow ? "modal" : ""} id="zeph-drawer">
-            <div id="portrait">
-                <img src="/assets/img/portrait-small.png" alt="Portrait" />
-            </div>
-            <h3 id="title" style="text-align: center" class="mdc-typography--headline5">Brynley McDonald</h3>
-            <h6 id="subtitle" class="mdc-typography--subtitle2">
-                Developer and Tech Enthusiast <br>
-                based in Auckland, New Zealand
-            </h6>
-            <div id="sidebar-items"> 
-                ${this.narrow ? html`
-                <a href="/" target="_self" >
-                    <mwc-button
-                        raised
-                        icon="home"
-                        slot="actionItems"
-                        label="Home"
-                        style="width: 100%"
-                        @click=${this._expandNav}>
-                    </mwc-button>
-                </a>
-                <a href="/posts" target="_self">
-                    <mwc-button
-                        raised
-                        icon="inventory"
-                        slot="actionItems"
-                        label="Post Archive"
-                        style="width: 100%"
-                        @click=${this._expandNav}>
-                    </mwc-button>
-                </a>
-                ` : ""}
-                <a href="mailto:brynley+site@zephire.nz" target="_blank">
-                    <mwc-button
-                    raised
-                    label="Email me"
-                    icon="email"
-                    style="width: 100%"
-                    >
-                    </mwc-button>
-                </a>
-                <div id="sidebar-links">
-                    <a href="https://github.com/ZephireNZ" target="_blank">
-                        <mwc-icon-button aria-label="Github">
-                            <svg>
-                                <path d=${mdiGithub} />
-                            </svg>
-                        </mwc-icon-button>
-                    </a>
-                    <a href="https://bsky.app/profile/zephire.nz" target="_blank">
-                        <mwc-icon-button aria-label="BlueSky">
-                            ${unsafeSVG(BlueskySvg)}
-                        </mwc-icon-button>
-                    </a>
-                    <a href="https://www.linkedin.com/in/brynley-mcdonald-413191112/" target="_blank">
-                        <mwc-icon-button aria-label="LinkedIn">
-                            <svg>
-                                <path d=${mdiLinkedin} />
-                            </svg>
-                        </mwc-icon-button>
-                    </a>
+        <div class="zeph-layout">
+            <aside class="zeph-drawer ${classMap({open: this.drawerOpen})}" id="zeph-drawer">
+                <div id="portrait">
+                    <img src="/assets/img/portrait-small.png" alt="Portrait" />
                 </div>
-            </div>
+                <h3 id="title" style="text-align: center" class="mdc-typography--headline5">Brynley McDonald</h3>
+                <h6 id="subtitle" class="mdc-typography--subtitle2">
+                    Developer and Tech Enthusiast <br>
+                    based in Auckland, New Zealand
+                </h6>
+                <div id="sidebar-items">
+                    ${this.narrow ? html`
+                    <a href="/" target="_self" >
+                        <md-filled-button
+                            style="width: 100%"
+                            @click=${this._expandNav}>
+                            <md-icon slot="icon">home</md-icon>
+                            Home
+                        </md-filled-button>
+                    </a>
+                    <a href="/posts" target="_self">
+                        <md-filled-button
+                            style="width: 100%"
+                            @click=${this._expandNav}>
+                            <md-icon slot="icon">inventory</md-icon>
+                            Post Archive
+                        </md-filled-button>
+                    </a>
+                    ` : ""}
+                    <a href="mailto:brynley+site@zephire.nz" target="_blank">
+                        <md-filled-button
+                        style="width: 100%"
+                        >
+                            <md-icon slot="icon">email</md-icon>
+                            Email me
+                        </md-filled-button>
+                    </a>
+                    <div id="sidebar-links">
+                        <a href="https://github.com/ZephireNZ" target="_blank">
+                            <md-icon-button aria-label="Github">
+                                <svg>
+                                    <path d=${mdiGithub} />
+                                </svg>
+                            </md-icon-button>
+                        </a>
+                        <a href="https://bsky.app/profile/zephire.nz" target="_blank">
+                            <md-icon-button aria-label="BlueSky">
+                                ${unsafeSVG(BlueskySvg)}
+                            </md-icon-button>
+                        </a>
+                        <a href="https://www.linkedin.com/in/brynley-mcdonald-413191112/" target="_blank">
+                            <md-icon-button aria-label="LinkedIn">
+                                <svg>
+                                    <path d=${mdiLinkedin} />
+                                </svg>
+                            </md-icon-button>
+                        </a>
+                    </div>
+                </div>
+            </aside>
 
-            <div slot="appContent">
-                <mwc-top-app-bar-fixed>
-                    ${this.narrow 
+            ${this.narrow && this.drawerOpen ? html`<div class="scrim" @click=${this._expandNav}></div>` : ""}
+
+            <div class="zeph-app-content">
+                <div class="zeph-top-app-bar">
+                    ${this.narrow
                         ? html`
-                            <mwc-icon-button
-                                icon="menu"
-                                slot="navigationIcon"
+                            <md-icon-button
+                                aria-label="Menu"
                                 @click=${this._expandNav}
                             >
-                            </mwc-icon-button>
+                                <md-icon>menu</md-icon>
+                            </md-icon-button>
                         ` : ""}
-                    <div slot="title">Zeph's Blog</div>
-                    ${this.narrow 
+                    <div id="app-title">Zeph's Blog</div>
+                    ${this.narrow
                         ? html``
                         : html`
-                            <mwc-button
-                                icon="home"
-                                slot="actionItems"
-                                label="Home"
-                                href="/"
-                                @click=${this._pageLink}>
-                            </mwc-button>
-                            <mwc-button
-                                icon="inventory"
-                                slot="actionItems"
-                                label="Post Archive"
-                                href="/posts"
-                                @click=${this._pageLink}>
-                            </mwc-button>
+                            <md-text-button data-href="/" @click=${this._pageLink}>
+                                <md-icon slot="icon">home</md-icon>
+                                Home
+                            </md-text-button>
+                            <md-text-button data-href="/posts" @click=${this._pageLink}>
+                                <md-icon slot="icon">inventory</md-icon>
+                                Post Archive
+                            </md-text-button>
                         `}
+                </div>
 
+                <div class="zeph-content">
                     <!-- Content -->
                     <zeph-page-router>
 
                     </zeph-page-router>
-                </mwc-top-app-bar-fixed>
+                </div>
             </div>
-        </mwc-drawer>
+        </div>
         `;
     }
 }

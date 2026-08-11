@@ -49,6 +49,18 @@ $zeph-secondary-dark: color.adjust($zeph-secondary, $lightness: -15%);
   /* mdc */
   --mdc-theme-primary: var(--zeph-primary);
   --mdc-theme-on-primary: var(--zeph-on-primary);
+
+  /* material web (M3) */
+  --md-sys-color-primary: var(--zeph-primary);
+  --md-sys-color-on-primary: var(--zeph-on-primary);
+  --md-sys-color-secondary: var(--zeph-secondary);
+  --md-sys-color-on-secondary: var(--zeph-on-secondary);
+  --md-sys-color-surface: #fff;
+  --md-sys-color-on-surface: #1d1d1d;
+  --md-sys-color-on-surface-variant: rgba(0, 0, 0, 0.6);
+  --md-ref-typeface-plain: Roboto, sans-serif;
+  --md-ref-typeface-brand: Roboto, sans-serif;
+  --md-icon-font: 'Material Icons';
 }
 
 // Default styles - taken from Bootstrap reboot

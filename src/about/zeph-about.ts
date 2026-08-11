@@ -1,7 +1,6 @@
 import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 import { commonStyles } from "../styles";
-import "@material/mwc-icon";
 import { mdiCodeBraces, mdiKubernetes, mdiPoll, mdiSitemap } from '@mdi/js';
 
 import "./zeph-skills-card";
