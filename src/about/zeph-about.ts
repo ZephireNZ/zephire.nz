@@ -35,7 +35,8 @@ export class ZephAbout extends LitElement {
                 <ul>
                     <li>Currently working as an Agile Architect, a role that sits at the Senior/Staff Engineer level</li>
                     <li>Technically planning and architecting solutions ahead of implementation</li>
-                    <li>Working closely with development teams and product owners to bring that plan to life</li>
+                    <li>Mentoring developers to help grow their skills</li>
+                    <li>Working closely with development teams, product owners, and business stakeholders to bring that plan to life</li>
                 </ul>
             </zeph-skills-card>
             <zeph-skills-card>
